@@ -190,62 +190,16 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 
 | No     | Profil Pustaka | Metode dan Temuan |
 | ------ | ------ | ------ |
-|1   | Judul:
-Auto-Encoding Variational Bayes
+|1   | Judul:                                            |Metode:|
+|     |   Auto-Encoding Variational Bayes                | Penelitian ini memperkenalkan pendekatan Auto-Encoding Variational Bayes (AEVB) untuk pelatihan model generatif berbasis variabel laten kontinu. Metode yang digunakan mencakup stochastic variational inference, reparameterization trick untuk mengoptimalkan variational lower bound, serta proses pelatihan menggunakan minibatch dengan stochastic gradient ascent. Model diuji pada beberapa dataset seperti MNIST dan Frey Face.|
+|     |                                                   |
+|      | Penulis:                                         |Temuan:|
+|      | 1. Diederik P. Kingma                            |Hasil penelitian menunjukkan bahwa estimator baru bernama Stochastic Gradient Variational Bayes (SGVB) mampu melakukan inferensi secara efisien pada model laten kontinu. Algoritma AEVB yang diajukan terbukti cepat konvergen dan memberikan performa lebih baik dibandingkan pendekatan sebelumnya. Selain itu, metode ini menghasilkan efek regularisasi alami yang membantu mencegah overfitting selama pelatihan model.|
+|     |  2. Max Welling                                    |
+|     |                                                    |
+|     | Identitas artikel:                                |
+|     |International Conference on Learning, Tahun 2022. | 
 
-Penulis:
-1. Diederik P. Kingma
-2. Max Welling
-
-Identitas artikel:
-International Conference on Learning, Tahun 2022. | Metode: |Penelitian ini memperkenalkan pendekatan Auto-Encoding Variational Bayes (AEVB) untuk                                                                       pelatihan model generatif berbasis variabel laten kontinu. Metode yang digunakan                                                                         mencakup stochastic variational inference, reparameterization trick untuk mengoptimalkan                                                                     variational lower bound, serta proses pelatihan menggunakan minibatch dengan stochastic                                                                     gradient ascent. Model diuji pada beberapa dataset seperti MNIST dan Frey Face. |
-
-| No | Profil Pustaka | Metode dan Temuan |
-|----|----------------|-------------------|
-| 1 | **Judul:** Auto-Encoding Variational Bayes  
-**Penulis:**  
-1. Diederik P. Kingma  
-2. Max Welling  
-**Identitas Artikel:**  
-International Conference on Learning, 2022 | **Metode:**  
-Penelitian ini memperkenalkan pendekatan AEVB untuk pelatihan model generatif dengan variabel laten kontinu, menggunakan stochastic variational inference, reparameterization trick, serta pelatihan minibatch.  
-Model diuji pada MNIST dan Frey Face.  
-
-**Temuan:**  
-SGVB terbukti efisien untuk inferensi laten kontinu, cepat konvergen, dan memberikan regularisasi alami yang mencegah overfitting. |
-| 2 | **Judul:** Analisis Gambar Wajah Palsu Menggunakan VAE dan Forensics DNN  
-**Penulis:**  
-1. Regina Angelika Septi Rahayu  
-2. Hendri Santoso  
-**Identitas Artikel:**  
-Sibatik Journal, Vol. 2 No. 9, 2023 | **Metode:**  
-Menggunakan VAE untuk menghasilkan citra manipulasi, dianalisis menggunakan Error Level Analysis (ELA), dan diklasifikasi menggunakan DNN berbasis Keras Sequential.  
-
-**Temuan:**  
-Kombinasi VAE dan ELA mampu membedakan citra asli vs manipulasi, namun beberapa kesalahan klasifikasi masih terjadi. |
-| 3 | **Judul:** Fully Convolutional Variational Autoencoder for Feature Extraction of Fire Detection System  
-**Penulis:**  
-1. Herminarto Nugroho  
-2. Meredita Susanty  
-3. Ade Irawan  
-4. Muhammad Komiyatu  
-5. Ariana Yunita  
-**Identitas Artikel:**  
-Jurnal Ilmu Komputer & Informasi, Vol. 13 No. 1, 2020 | **Metode:**  
-Menggunakan Fully Convolutional VAE sebagai ekstraktor fitur citra kebakaran, terdiri dari encoder–bottleneck–decoder berbasis CNN.  
-
-**Temuan:**  
-Model mampu mengekstraksi fitur penting dan mereduksi dimensi data tanpa kehilangan karakteristik utama. |
-| 4 | **Judul:** Feature Learning Using Deep VAE for Prediction of Defects in Car Engine  
-**Penulis:**  
-1. Nanang Susanto  
-2. Hilman Ferdinandus Pardede  
-**Identitas Artikel:**  
-IEEE Journal, 2024 | **Metode:**  
-Menggabungkan CNN, VAE, dan SMOTE untuk menangani data tidak seimbang dalam pendeteksian cacat mesin.  
-
-**Temuan:**  
-Model CNN–SMOTE–VAE mencapai akurasi 97,26% dan precision 99,63%, menunjukkan VAE efektif sebagai pembelajar fitur. |
 
 
 
