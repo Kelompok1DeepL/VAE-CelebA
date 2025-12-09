@@ -188,6 +188,15 @@ Persamaan (6) merangkum dua tujuan penting dalam pelatihan VAE. Bagian pertama (
 <p align="justify">
 Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai studi sebelumnya yang berkaitan dengan topik yang disusun. Penelitian-penelitian tersebut dirangkum dalam Tabel 1. berikut:
 
+| Plugin | README |
+| ------ | ------ |
+| Dropbox | [plugins/dropbox/README.md][PlDb] |
+| GitHub | [plugins/github/README.md][PlGh] |
+| Google Drive | [plugins/googledrive/README.md][PlGd] |
+| OneDrive | [plugins/onedrive/README.md][PlOd] |
+| Medium | [plugins/medium/README.md][PlMe] |
+| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+
 <img width="456" height="626" alt="image" src="https://github.com/user-attachments/assets/ff40379c-5853-470f-b26d-3522bd48e25e" />
 
 <img width="457" height="587" alt="image" src="https://github.com/user-attachments/assets/3b0cba6e-da9e-45d8-ac0f-97130067afec" />
