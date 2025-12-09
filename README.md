@@ -106,7 +106,6 @@ Untuk membentuk ruang laten yang terstruktur, VAE membuat _encoder_ menghasilkan
 
 <img width="617" height="157" alt="image" src="https://github.com/user-attachments/assets/c07587b2-2d2a-4e2e-bf48-18e8ce07096d" />
 
-
 <img width="284" height="44" alt="image" src="https://github.com/user-attachments/assets/d9ea1945-9aef-4209-b70c-c50b731eda56" />
 
 Persamaan (2) menunjukkan bahwa nilai z tidak diambil langsung dari distribusi Gaussian, melainkan diperoleh melalui fungsi transformasi g∅ yang memanfaatkan _noise_ . Dengan cara ini, proses _sampling_ tetap dapat dimasukkan ke dalam alur _backpropagation_. Dengan kombinasi mekanisme rekonstruksi, regularisasi KL, dan _reparameterization trick_, VAE mampu menciptakan ruang laten yang lebih konsisten dan memungkinkan pembangkitan data baru dengan pola yang serupa dengan data asli (Dao et al., 2022).
