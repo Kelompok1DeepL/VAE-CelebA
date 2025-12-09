@@ -190,8 +190,8 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 
 | No     | Profil Pustaka | Metode dan Temuan |
 | ------ | ------ | ------ |
-|1   | Judul:Auto-Encoding Variational Bayes                | [plugins/dropbox/README.md][PlDb]  |
-|    | Penulis:                                                | |
+|1   | Judul:Auto-Encoding Variational Bayes                |Metode: |
+|    | Penulis:                                                |Penelitian ini memperkenalkan pendekatan Auto-Encoding Variational Bayes (AEVB) untuk                                                                       pelatihan model generatif berbasis variabel laten kontinu. Metode yang digunakan                                                                         mencakup stochastic variational inference, reparameterization trick untuk mengoptimalkan                                                                     variational lower bound, serta proses pelatihan menggunakan minibatch dengan stochastic                                                                     gradient ascent. Model diuji pada beberapa dataset seperti MNIST dan Frey Face. |
 |    |    1. Diederik P. Kingma                                | |
 |    |    2. Max Welling                                        |  |
 |    |    Identitas artikel:                                    | |
