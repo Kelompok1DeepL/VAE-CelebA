@@ -157,40 +157,39 @@ Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpul
 
 # **BAB III — METODOLOGI**
 ## **3.1 Tahapan Kerja**
-<img width="497" height="1031" alt="deeplearning" src="https://github.com/user-attachments/assets/87cb7952-3cfe-49d3-b02e-98a567916c24" />
+<img width="482" height="1091" alt="deeplearning" src="https://github.com/user-attachments/assets/5ebfe791-d4bb-478c-a3d8-8bf466b4d1f6" />
 
 **Mulai Penelitian**
-Tahap ini merupakan awal dari seluruh rangkaian penelitian, di mana permasalahan dirumuskan dan tujuan penelitian ditetapkan. Pada fase ini ditentukan bahwa penelitian akan menggunakan model Variational Autoencoder (VAE) untuk mempelajari distribusi wajah manusia menggunakan dataset CelebA dan menghasilkan citra wajah baru.
+Tahap ini merupakan titik awal penelitian, di mana peneliti menentukan topik, tujuan, dan metode yang akan digunakan. Pada tahap ini juga dirumuskan bahwa penelitian akan menggunakan model Variational Autoencoder (VAE) dengan dataset CelebA untuk melakukan pemodelan dan generasi wajah.
 
 **Ambil Dataset CelebA**
-Pada tahap ini, dataset CelebA dikumpulkan dan disiapkan. Dataset ini berisi ratusan ribu gambar wajah yang akan digunakan sebagai data latih. Data biasanya diunduh dari sumber resmi dan kemudian disimpan dalam struktur folder tertentu agar mudah diproses oleh model.
+Pada langkah ini, dataset CelebA dikumpulkan dari sumber resmi. Dataset ini berisi ratusan gambar wajah manusia yang digunakan sebagai data latih. Data kemudian disiapkan dalam struktur folder agar mudah diproses oleh sistem.
 
 **Preprocessing Gambar (Resize, ToTensor, Normalization)**
-Tahap preprocessing bertujuan untuk menyiapkan data agar sesuai dengan input model. Gambar diubah ukurannya menjadi resolusi seragam (misalnya 128×128 piksel), kemudian dikonversi menjadi bentuk tensor, dan dinormalisasi agar nilai piksel berada dalam rentang yang stabil untuk proses pelatihan (misalnya -1 sampai 1). Proses ini membantu model belajar lebih efektif.
-
-**Bangun Arsitektur VAE (Encoder – Latent – Decoder)**
-Pada tahap ini, struktur model VAE dibangun. Encoder bertugas mengubah gambar input menjadi representasi vektor di ruang laten (mean dan log variance). Selanjutnya dilakukan proses sampling menggunakan reparameterization trick untuk mendapatkan variabel laten. Decoder kemudian mengubah kembali vektor laten ini menjadi gambar yang menyerupai input awal.
+Tahap ini bertujuan untuk menyiapkan data sebelum masuk ke model. Gambar diubah ukurannya agar seragam (misalnya 128×128 piksel), dikonversi menjadi bentuk tensor, dan dinormalisasi supaya nilai piksel berada dalam rentang yang sesuai untuk pembelajaran model. Proses ini penting agar model dapat belajar dengan stabil dan efisien.
 
 **Proses Training (Loss = Reconstruction + KL Divergence)**
-Model dilatih menggunakan data yang telah diproses. Pada tahap ini, model berusaha meminimalkan fungsi loss yang terdiri dari dua bagian: reconstruction loss (mengukur seberapa mirip gambar hasil rekonstruksi dengan gambar asli) dan KL Divergence (mengatur distribusi ruang laten agar mendekati distribusi normal). Proses ini dilakukan berulang melalui beberapa epoch hingga model konvergen.
+Pada tahap ini model dilatih menggunakan data yang sudah diproses. Model VAE mempelajari bagaimana mengompresi gambar ke ruang laten dan merekonstruksinya kembali. Proses pelatihan berfokus pada minimisasi dua komponen loss, yaitu reconstruction loss untuk mengukur kemiripan hasil rekonstruksi dengan gambar asli dan KL divergence untuk mengatur distribusi data di ruang laten.
+
+**Visualisasi**
+Setelah proses training, dilakukan visualisasi untuk melihat hasil kerja model. Pada tahap ini ditampilkan grafik loss selama pelatihan dan beberapa contoh hasil keluaran model untuk mempermudah analisis performa.
 
 **Rekonstruksi**
-Pada cabang ini, model diuji kemampuannya untuk merekonstruksi gambar input. Gambar asli dimasukkan ke encoder lalu didekodekan kembali. Hasilnya dibandingkan dengan gambar asli untuk melihat kualitas rekonstruksi. Biasanya hasil terlihat lebih halus atau sedikit blur, yang merupakan ciri khas VAE.
+Tahap rekonstruksi menunjukkan kemampuan model dalam membangun kembali gambar yang diberikan sebagai input. Gambar asli dimasukkan ke model, lalu model menghasilkan gambar hasil rekonstruksi. Hasil ini digunakan untuk menilai seberapa baik model memahami struktur data wajah.
 
 **Interpolasi**
-Interpolasi dilakukan dengan mengambil dua titik vektor laten dari dua gambar berbeda, lalu dibuat transisi bertahap di antara keduanya. Hasilnya adalah serangkaian gambar yang menunjukkan perubahan wajah secara halus dari satu wajah ke wajah lainnya. Tahap ini menunjukkan bahwa ruang laten yang dipelajari model bersifat kontinu dan terstruktur dengan baik.
+Pada tahap ini dilakukan interpolasi di ruang laten, yaitu transisi bertahap antara dua wajah yang berbeda. Tujuannya adalah melihat bagaimana model mempelajari representasi wajah secara kontinu dan bagaimana perubahan antar fitur wajah dapat terjadi secara halus.
 
-**Evaluasi & Visualisasi**
-Pada tahap ini, seluruh hasil proses sebelumnya dievaluasi dan divisualisasikan. Grafik loss selama training ditampilkan untuk melihat performa pembelajaran model. Selain itu, ditampilkan perbandingan gambar asli dan rekonstruksi, serta interpolasi wajah untuk menilai kualitas model secara visual.
-
-**Gambar Interpolasi Laten**
-Pada tahap ini ditampilkan hasil visual interpolasi yang menunjukkan transisi mulus antar wajah. Hasil ini menjadi bukti bahwa representasi laten yang dipelajari oleh VAE bersifat kontinu dan bermakna.
+**Evaluasi**
+Tahap evaluasi dilakukan untuk menilai kinerja model secara keseluruhan. Evaluasi dilakukan dengan membandingkan hasil rekonstruksi, hasil interpolasi, dan nilai loss selama training untuk memastikan model bekerja sesuai tujuan penelitian.
 
 **Kesimpulan Penelitian**
-Tahap akhir adalah penarikan kesimpulan berdasarkan seluruh hasil yang diperoleh. Pada bagian ini dijelaskan apakah model VAE berhasil mempelajari distribusi wajah dengan baik, seberapa baik kualitas rekonstruksi dan generasi gambar, serta potensi pengembangan lebih lanjut dari penelitian ini.
+Setelah evaluasi, peneliti menyusun kesimpulan berdasarkan hasil eksperimen. Pada tahap ini dijelaskan apakah model VAE berhasil mempelajari pola wajah dengan baik serta kelebihan dan keterbatasan model yang digunakan.
 
-**Tahap Selesai Penelitian**
-Tahap selesai penelitian merupakan tahap akhir dari seluruh rangkaian proses pembuatan dan pengujian model Variational Autoencoder (VAE) menggunakan dataset CelebA. Pada tahap ini, seluruh hasil eksperimen dianalisis untuk mengetahui sejauh mana model berhasil mencapai tujuan penelitian. Evaluasi dilakukan dengan membandingkan gambar asli dengan hasil rekonstruksi, serta mengamati interpolasi pada ruang laten.
+**Selesai Penelitian**
+Tahap ini merupakan akhir dari seluruh rangkaian penelitian. Semua hasil telah dianalisis dan didokumentasikan dalam bentuk laporan atau skripsi, serta diberikan saran untuk pengembangan penelitian selanjutnya.
+
+
 
 ## **3.2 Dataset**
 Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset (CelebA), yaitu kumpulan citra wajah manusia yang sangat populer untuk tugas‑tugas computer vision dan model generatif. Dataset ini berisi 200 gambar wajah dengan resolusi asli 178 × 218 piksel, menampilkan beragam ekspresi, posisi kepala, kondisi pencahayaan, serta variasi karakteristik wajah lainnya. Pada proses pra‑pengolahan di notebook, seluruh gambar diubah ukurannya menjadi 128 × 128 piksel agar sesuai dengan arsitektur model VAE yang digunakan. Dataset CelebA dipilih karena ukurannya yang besar dan keragamannya yang tinggi, sehingga cocok untuk tugas seperti rekonstruksi wajah, pembelajaran distribusi laten wajah, generasi citra baru, dan interpolasi di ruang laten. Transformasi pada data dilakukan menggunakan modul torchvision.transforms, yang meliputi Resize untuk menyesuaikan resolusi gambar, ToTensor untuk mengubah gambar dari format PIL/NumPy menjadi tensor PyTorch berukuran (C, H, W) dengan skala piksel 0–1, serta Normalize dengan mean dan standar deviasi 0.5 agar nilai piksel berada pada rentang –1 hingga 1. Normalisasi ini membantu stabilitas proses pelatihan dan mempercepat konvergensi model VAE.
