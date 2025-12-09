@@ -122,12 +122,12 @@ Data dengan dimensi tinggi umumnya dapat diproyeksikan ke ruang yang lebih ringk
 
 Untuk mengatasi masalah tersebut, pendekatan β-VAE digunakan untuk membatasi kapasitas ruang laten sehingga model hanya menangkap fitur penting dari data melalui mekanisme regularisasi pada fungsi loss. Pendekatan ini mendorong model untuk menangkap fitur-fitur paling signifikan dari data sehingga representasi laten menjadi lebih terorganisasi dan lebih mudah dipahami. Representasi yang teratur ini bermanfaat pada berbagai aplikasi generatif, termasuk interpolasi citra (Cristovao et al., 2020).
 
-## **_Residual Block_**
+## **2.1.8 _Residual Block_**
 Residual block merupakan elemen arsitektural yang digunakan untuk meningkatkan stabilitas proses pelatihan serta kualitas representasi fitur pada model _Variational Autoencoder_ (VAE). Dalam pendekatan _Multiscale Residual_ VAE, _residual block_ ditempatkan pada bagian _encoder_ maupun _decoder_ untuk menjaga agar informasi penting tetap mengalir dengan baik selama proses propagasi. Mekanisme ini memungkinkan jaringan mempelajari fitur secara lebih mendalam tanpa mengalami kendala umum seperti _vanishing gradient_ ketika jumlah lapisan semakin bertambah.
 
 Selain memberikan jalur informasi tambahan melalui koneksi residual, blok ini juga membantu memperkaya karakteristik ruang laten sehingga representasi yang dihasilkan menjadi lebih halus dan bermakna. Dampaknya terlihat pada peningkatan kualitas rekonstruksi terutama pada citra dengan struktur kompleks. Penerapan residual block telah terbukti efektif dalam berbagai model generatif, termasuk arsitektur VAE multiskala yang memanfaatkan _residual connections_ untuk menghasilkan detail visual yang lebih realistis dan stabil (Diamantis et al., 2024)
 
-## **_Evidance Lower Bound_ (ELBO)**
+## **2.1.9 _Evidance Lower Bound_ (ELBO)**
 Pada _Variational Autoencoder_ (VAE), proses pelatihan dilakukan dengan memaksimalkan _Evidence Lower Bound_ (ELBO), yang menjadi batas bawah dari _log-likelihood_ data. Pendekatan ini digunakan karena posterior sebenarnya p∅(z|x) tidak dapat dihitung secara langsung, sehingga diperlukan distribusi pendekatan q∅(z|x) untuk membangun fungsi objektif yang dapat dioptimalkan.
 Dalam kerangka _variational inference_, _log-likelihood_ dapat dituliskan ulang sebagaimana ditunjukkan pada Persamaan (4):
 
@@ -148,7 +148,8 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 
 <img width="456" height="626" alt="image" src="https://github.com/user-attachments/assets/ff40379c-5853-470f-b26d-3522bd48e25e" />
 
-<img width="457" height="601" alt="image" src="https://github.com/user-attachments/assets/9b8d5ea7-1d2b-4c2e-b714-07032cd9efaa" />
+<img width="457" height="587" alt="image" src="https://github.com/user-attachments/assets/3b0cba6e-da9e-45d8-ac0f-97130067afec" />
+
 
 Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpulkan bahwa penggunaan _Variational Autoencoder_ (VAE) telah diterapkan dalam berbagai konteks, seperti deteksi manipulasi wajah, ekstraksi fitur citra kebakaran, dan prediksi cacat pada mesin. Meskipun demikian, sebagian besar penelitian tersebut lebih menekankan fungsi VAE sebagai alat klasifikasi atau pendukung sistem deteksi, bukan sebagai model generatif yang berfokus pada proses rekonstruksi citra. Selain itu, dataset yang digunakan pada studi terdahulu juga bervariasi dan sebagian besar tidak melibatkan dataset wajah berskala besar seperti CelebA. Di sisi lain, penelitian yang bersifat fundamental seperti studi Kingma dan Welling (2013) memang menjadi dasar konsep VAE, tetapi belum secara khusus mengevaluasi performanya dalam menghasilkan rekonstruksi citra wajah beranotasi kompleks. Dengan demikian, masih terdapat ruang penelitian untuk mengevaluasi kemampuan VAE sebagai model generatif dalam melakukan rekonstruksi citra wajah pada dataset CelebA, sekaligus menguji sejauh mana kualitas hasil rekonstruksi tersebut dapat merepresentasikan karakteristik visual asli. Penelitian ini hadir untuk mengisi celah tersebut melalui implementasi VAE yang difokuskan pada proses rekonstruksi citra wajah sebagai bentuk pendekatan generatif dalam domain _deep learning_.
 
@@ -206,9 +207,8 @@ Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset
 
 ## **4.5 Hasil Training: Rekonstruksi**
 
-## **4.6 Hasil: Sampling Wajah Baru**
 
-## **4.7 Hasil: Latent Interpolation**
+## **4.6 Hasil: Latent Interpolation**
 
 
 
