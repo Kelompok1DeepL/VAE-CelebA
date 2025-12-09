@@ -211,6 +211,13 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 |     | Identitas artikel:                                |
 |     |Jurnal Ilmu Komputer dan Informasi, Volume 13, Nomor 1, Tahun 2020. | 
 |      |                                          ||
+|4   | Judul:                                            |Metode:|
+|     |   Feature Learning Using Deep Variational Autoencoder for Prediction of Defects in Car Engine | Penelitian ini menerapkan pendekatan deep learning dengan mengombinasikan CNN, Variational Autoencoder (VAE), serta teknik SMOTE untuk menangani ketidakseimbangan data. VAE dimanfaatkan sebagai tahap rekonstruksi fitur untuk mereduksi dimensi sekaligus mempertahankan karakteristik penting sebelum proses klasifikasi.|
+|      | Penulis:                                         |Temuan:|
+|      | Nanang Susanto & Hilman Ferdinandus Pardede |Model gabungan CNN–SMOTE–VAE berhasil meningkatkan performa secara signifikan dibanding pendekatan dasar. Akurasi akhir mencapai 97,26%, dengan nilai precision tertinggi sebesar 99,63%. Hasil ini menunjukkan bahwa VAE efektif digunakan sebagai mekanisme pembelajaran fitur untuk meningkatkan performa deteksi cacat pada data berskala besar dan tidak seimbang.|
+|     | Identitas artikel:                                |
+|     |IEEE Journal, Tahun 2024 | 
+|      |                                          ||
 
 
 
