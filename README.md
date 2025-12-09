@@ -135,7 +135,7 @@ Dalam kerangka _variational inference_, _log-likelihood_ dapat dituliskan ulang 
 
 Persamaan (4) memperlihatkan bahwa _log-likelihood_ tersusun dari dua bagian, yaitu nilai ekspektasi terhadap rasio antara model generatif dan distribusi pendekatan, serta _Kullback–Leibler divergence_ antara posterior pendekatan dan posterior sebenarnya. Karena _KL divergence_ selalu bernilai non-negatif, bagian ekspektasi tersebut menjadi batas bawah dari _log-likelihood_ dan disebut sebagai ELBO. Komponen regularisasi dalam ELBO dijelaskan melalui KL divergence antara distribusi pendekatan dan prior, sebagaimana dituliskan pada Persamaan (5):
 
-<img width="432" height="35" alt="image" src="https://github.com/user-attachments/assets/dccfc90c-2aab-4000-9f3a-358b590d5af6" />
+<img width="429" height="31" alt="image" src="https://github.com/user-attachments/assets/cec8734c-e257-4114-91cb-09da99df6e93" />
 
 Persamaan (5) ini menggambarkan seberapa jauh distribusi laten hasil _encoder_ menyimpang dari prior. Semakin besar nilainya, semakin besar penalti yang diberikan model untuk menjaga agar ruang laten tetap terstruktur dan tidak menjadi acak. Dengan menggabungkan komponen rekonstruksi dan regularisasi tersebut, batas bawah yang menjadi tujuan optimasi VAE dituliskan pada Persamaan (6):
 
