@@ -221,11 +221,11 @@ Pada tahap training, proses dimulai dengan forward pass, yaitu gambar input dima
 
 ## **4.5 Hasil Training: Rekonstruksi**
 <img width="1244" height="350" alt="image" src="https://github.com/user-attachments/assets/1e7cf9c3-3016-4b1e-9e0f-5cce71ae544e" />
-
+Pada visualisasi rekonstruksi, baris pertama menampilkan gambar asli yang diambil dari dataset CelebA, sedangkan baris kedua menunjukkan hasil rekonstruksi yang dihasilkan oleh decoder setelah melalui proses encoding dan sampling latent. Dari gambar terlihat bahwa model mampu mempertahankan struktur global wajah, seperti bentuk muka, posisi mata, kontur hidung, serta warna rambut. Setiap wajah pada baris kedua masih menyerupai wajah pada baris pertama dalam hal komposisi dan proporsi. Namun, rekonstruksi terlihat lebih buram dan kurang detail, terutama pada area rambut dan tekstur kulit. Beberapa hasil juga tampak mengalami sedikit distorsi atau noise pada bagian pinggir gambar, yang menunjukkan bahwa model masih memiliki keterbatasan dalam menghasilkan detail resolusi tinggi. Meski demikian, kecocokan bentuk dan fitur utama menunjukkan bahwa VAE dengan residual blocks telah berhasil mempelajari pola distribusi wajah secara memadai sehingga dapat mengembalikan citra dengan konsistensi yang baik pada tingkat global.
 
 ## **4.6 Hasil: Latent Interpolation**
 <img width="1570" height="199" alt="image" src="https://github.com/user-attachments/assets/4d75dab7-425b-4eba-aa96-77ca8bac5f1c" />
-
+Pada bagian latent interpolation, dua wajah yang berbeda dijadikan titik awal dan titik akhir. Gambar interpolasi di antara keduanya menunjukkan perubahan bertahap dari wajah A menuju wajah B. Perubahan terjadi secara mulus: mulai dari bentuk wajah, ekspresi, tekstur rambut, hingga tone warna kulit. Pada gambar yang kamu tampilkan, wajah pada sisi kiri terlihat lebih gelap dan memiliki gaya rambut tertentu, kemudian secara perlahan berubah menjadi wajah dengan rambut lebih terang dan bentuk wajah berbeda pada sisi kanan. Transisi antar frame terlihat halus dan konsisten, tanpa perubahan mendadak atau artefak besar, yang menunjukkan bahwa latent space model tersusun dengan baik dan bersifat kontinu. Ini membuktikan bahwa VAE tidak sekadar menghafal gambar, tetapi benar‑benar mempelajari representasi abstrak yang memungkinkan perpindahan fitur secara logis di ruang laten.
 
 
 # **DAFTAR PUSTAKA**
