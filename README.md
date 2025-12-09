@@ -74,5 +74,4 @@ Proyek ini menerapkan VAE dengan menambahkan arsitektur _Residual Blocks_ pada *
 
 ---
 
-<img width="445" height="54" alt="image" src="https://github.com/user-attachments/assets/6a30188a-675f-491c-8380-0ddcea07aa1a" />
 
