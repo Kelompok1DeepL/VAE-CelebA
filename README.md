@@ -195,7 +195,6 @@ Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset
 
 # **BAB IV — HASIL & PEMBAHASAN**
 ## **4.1 Load Dataset**
-''' 
     
     zip_path = "/content/img_align_celeba.zip"
     extract_path = "/content/celeba"
@@ -203,7 +202,7 @@ Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset
     with zipfile.ZipFile(zip_path, 'r') as z:
         z.extractall(extract_path)
     
-    print("Done!") '''
+    print("Done!") 
 
 Pada tahap ini, dataset CelebA (CelebFaces Attributes Dataset) dimuat menggunakan ImageFolder. Dataset ini berisi 200 gambar wajah manusia dengan berbagai variasi ekspresi, pencahayaan, dan sudut pandang. Setiap gambar melalui proses preprocessing berupa:
 - Resize (128×128 piksel) agar sesuai dengan arsitektur VAE.
@@ -212,7 +211,6 @@ Pada tahap ini, dataset CelebA (CelebFaces Attributes Dataset) dimuat menggunaka
 Dataset kemudian dimasukkan ke DataLoader dengan batch size tertentu (misalnya 64), sehingga gambar dapat diproses secara batch selama training. Tahap ini memastikan model menerima input bersih, seragam, dan siap digunakan.
 
 ## **4.2 Build Model (Encoder + Decoder)**
-''' 
 
     class ResidualBlock(nn.Module):
         def __init__(self, channels):
@@ -318,11 +316,10 @@ Dataset kemudian dimasukkan ke DataLoader dengan batch size tertentu (misalnya 6
         mu, logvar = self.encoder(x)
         z = self.reparameterize(mu, logvar)
         recon = self.decoder(z)
-        return recon, mu, logvar '''
+        return recon, mu, logvar
         
 
 ## **4.3 Training Loop**
-''' 
 
     loss_history = []
     vae.train()
@@ -368,7 +365,7 @@ Dataset kemudian dimasukkan ke DataLoader dengan batch size tertentu (misalnya 6
         sample_path = os.path.join(SAMPLES_DIR, f"samples_epoch_{epoch}.png")
         save_reconstructed_grid(samples.cpu(), sample_path, nrow=4)
 
-    vae.train() '''
+    vae.train()
 
     
 Pada tahap training, proses dimulai dengan forward pass, yaitu gambar input dimasukkan ke dalam encoder untuk menghasilkan dua parameter, yaitu mu dan logvar, yang merepresentasikan distribusi laten. Dari parameter ini, model melakukan proses reparameterization untuk menghasilkan nilai laten z, yang kemudian diteruskan ke decoder untuk menghasilkan citra rekonstruksi. Setelah rekonstruksi dihasilkan, model menghitung nilai loss yang terdiri dari dua komponen: Reconstruction Loss (MSE) yang mengukur seberapa mirip citra hasil rekonstruksi dengan citra asli, serta KL Divergence yang memastikan bahwa distribusi laten mendekati distribusi Gaussian standar. Selanjutnya dilakukan backward pass, yaitu proses propagasi balik menggunakan optimizer.zero_grad(), loss.backward(), dan optimizer.step() untuk memperbarui bobot model berdasarkan error yang diperoleh. Pada setiap epoch, model juga menyimpan checkpoint agar hasil pelatihan dapat dipantau dan dilanjutkan, serta menghasilkan sampel wajah baru dari ruang laten. Seluruh proses ini diulang selama beberapa epoch, dan pada tiap epoch dicatat nilai loss rata-rata untuk melihat perkembangan performa model selama pelatihan.
