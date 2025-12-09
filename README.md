@@ -195,13 +195,15 @@ Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset
 
 # **BAB IV — HASIL & PEMBAHASAN**
 ## **4.1 Load Dataset**
-''' zip_path = "/content/img_align_celeba.zip"
-extract_path = "/content/celeba"
-
-with zipfile.ZipFile(zip_path, 'r') as z:
-    z.extractall(extract_path)
-
-print("Done!") '''
+''' 
+    
+    zip_path = "/content/img_align_celeba.zip"
+    extract_path = "/content/celeba"
+    
+    with zipfile.ZipFile(zip_path, 'r') as z:
+        z.extractall(extract_path)
+    
+    print("Done!") '''
 
 Pada tahap ini, dataset CelebA (CelebFaces Attributes Dataset) dimuat menggunakan ImageFolder. Dataset ini berisi 200 gambar wajah manusia dengan berbagai variasi ekspresi, pencahayaan, dan sudut pandang. Setiap gambar melalui proses preprocessing berupa:
 - Resize (128×128 piksel) agar sesuai dengan arsitektur VAE.
@@ -211,21 +213,22 @@ Dataset kemudian dimasukkan ke DataLoader dengan batch size tertentu (misalnya 6
 
 ## **4.2 Build Model (Encoder + Decoder)**
 ''' 
-class ResidualBlock(nn.Module):
-    def __init__(self, channels):
-        super().__init__()
-        self.block = nn.Sequential(
-            nn.Conv2d(channels, channels, kernel_size=3, padding=1),
-            nn.ReLU(True),
-            nn.Conv2d(channels, channels, kernel_size=3, padding=1)
-        )
+
+    class ResidualBlock(nn.Module):
+        def __init__(self, channels):
+            super().__init__()
+            self.block = nn.Sequential(
+                nn.Conv2d(channels, channels, kernel_size=3, padding=1),
+                nn.ReLU(True),
+                nn.Conv2d(channels, channels, kernel_size=3, padding=1)
+            )
 
     def forward(self, x):
         return F.relu(x + self.block(x))
 
-class Encoder(nn.Module):
-    def __init__(self):
-        super().__init__()
+    class Encoder(nn.Module):
+        def __init__(self):
+            super().__init__()
 
         self.down = nn.Sequential(
             nn.Conv2d(3, 32, 4, 2, 1),   # 128 → 64
@@ -265,9 +268,9 @@ class Encoder(nn.Module):
         logvar = self.fc_logvar(x)
         return mu, logvar
 
-class Decoder(nn.Module):
-    def __init__(self, flatten_dim):
-        super().__init__()
+    class Decoder(nn.Module):
+        def __init__(self, flatten_dim):
+            super().__init__()
 
         self.init_spatial = 4
         self.init_channels = flatten_dim // (self.init_spatial * self.init_spatial)
@@ -300,11 +303,11 @@ class Decoder(nn.Module):
         x = x.view(-1, self.init_channels, 4, 4)
         return self.up(x)
 
-class VAE(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.encoder = Encoder()
-        self.decoder = Decoder(self.encoder.flatten_dim)
+    class VAE(nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.encoder = Encoder()
+            self.decoder = Decoder(self.encoder.flatten_dim)
 
     def reparameterize(self, mu, logvar):
         std = torch.exp(0.5 * logvar)
@@ -320,10 +323,11 @@ class VAE(nn.Module):
 
 ## **4.3 Training Loop**
 ''' 
-loss_history = []
-vae.train()
-for epoch in range(1, EPOCHS + 1):
-    total_loss = 0.0
+
+    loss_history = []
+    vae.train()
+    for epoch in range(1, EPOCHS + 1):
+        total_loss = 0.0
 
     for batch_idx, (images, _) in enumerate(loader):
         images = images.to(DEVICE)
