@@ -154,7 +154,7 @@ Susanto, N., & Pardede, H. (2024). Feature learning using deep variational autoe
 
 Nugroho, H., Susanty, M., Irawan, A., Koyimatu, M., & Yunita, A. (2020). Fully convolutional variational autoencoder for feature extraction of fire detection system. Jurnal Ilmu Komputer dan Informasi, 13(1), 9–15. https://doi.org/10.21609/jiki.v13i1.761
 
-3. Giger, M., & Csillaghy, A. (2024). Unsupervised anomaly detection with variational autoencoders applied to full-disk solar images. Space Weather, 22, e2023SW003516. https://doi.org/10.1029/2023SW003516
+Giger, M., & Csillaghy, A. (2024). Unsupervised anomaly detection with variational autoencoders applied to full-disk solar images. Space Weather, 22, e2023SW003516. https://doi.org/10.1029/2023SW003516
 
 Kingma, D. P., & Welling, M. (2022). Auto-encoding variational Bayes. arXiv. https://arxiv.org/abs/1312.6114
 
