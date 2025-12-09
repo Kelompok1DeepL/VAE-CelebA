@@ -74,6 +74,7 @@ Proyek ini menerapkan VAE dengan menambahkan arsitektur _Residual Blocks_ pada *
 
 ---
 <p align="justify">
+    
 ## **Rumusan Masalah**
 1. Bagaimana mengimplementasikan Variational Autoencoder (VAE) dengan Residual Blocks dalam mempelajari representasi fitur wajah pada dataset CelebA?  
 2. Bagaimana kinerja Variational Autoencoder (VAE) dengan Residual Blocks dalam merekonstruksi citra wajah dari dataset CelebA?  
@@ -81,6 +82,7 @@ Proyek ini menerapkan VAE dengan menambahkan arsitektur _Residual Blocks_ pada *
 
 ---
 <p align="justify">
+    
 ## **Tujuan Penelitian**
 1. Mengimplementasikan Variational Autoencoder (VAE) dengan Residual Blocks untuk dataset CelebA.  
 2. Menganalisis kinerja rekonstruksi model VAE dengan Residual Blocks pada data wajah CelebA.  
