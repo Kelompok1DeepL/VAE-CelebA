@@ -191,32 +191,32 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 
 | No     | Profil Pustaka | Metode dan Temuan |
 | ------ | ------ | ------ |
-|1   | Judul:                                            |Metode:|
+|1   | <b>Judul:</b>                                            |<b>Metode:</b>|
 |     |   Auto-Encoding Variational Bayes                | Penelitian ini memperkenalkan pendekatan Auto-Encoding Variational Bayes (AEVB) untuk pelatihan model generatif berbasis variabel laten kontinu. Metode yang digunakan mencakup stochastic variational inference, reparameterization trick untuk mengoptimalkan variational lower bound, serta proses pelatihan menggunakan minibatch dengan stochastic gradient ascent. Model diuji pada beberapa dataset seperti MNIST dan Frey Face.|
-|      | Penulis:                                         |Temuan:|
+|      | <b>Penulis:</b>                                         |<b>Temuan:</b>|
 |      | Diederik P. Kingma & Max Welling    |Hasil penelitian menunjukkan bahwa estimator baru bernama Stochastic Gradient Variational Bayes (SGVB) mampu melakukan inferensi secara efisien pada model laten kontinu. Algoritma AEVB yang diajukan terbukti cepat konvergen dan memberikan performa lebih baik dibandingkan pendekatan sebelumnya. Selain itu, metode ini menghasilkan efek regularisasi alami yang membantu mencegah overfitting selama pelatihan model.|
-|     | Identitas artikel:                                |
+|     |  <b>Identitas artikel:</b>                                 |
 |     |International Conference on Learning, Tahun 2022. | 
 |      |                                          ||
-|2   | Judul:                                            |Metode:|
+|2   | <b>Judul:</b>                                           |<b>Metode:</b>|
 |     |   ANALISIS GAMBAR WAJAH PALSU: MENDETEKSI KEASLIAN GAMBAR YANG DIMANIPULASI MENGGUNAKAN METODE VARIATIONAL AUTO<i>encoder</i> DAN FORENSICS DEEP NEURAL NETWORK                | Penelitian ini menggunakan pendekatan kuantitatif dengan menerapkan Variational Auto<i>encoder</i> (VAE) untuk menghasilkan citra wajah yang dimanipulasi. Identifikasi perubahan pada gambar dilakukan melalui Error Level Analysis (ELA), sedangkan deteksi keaslian diperkuat menggunakan model forensik berbasis deep neural network yang dibangun melalui Keras Sequential API.|
-|      | Penulis:                                         |Temuan:|
+|      | <b>Penulis:</b>                                         |<b>Temuan:</b>|
 |      | Regina Angelika Septi Rahayu & Hendri Santoso |Hasil penelitian menunjukkan bahwa kombinasi VAE dan ELA mampu membedakan citra asli dan hasil manipulasi. Meskipun demikian, masih ditemukan kesalahan klasifikasi, terutama ketika citra manipulasi terdeteksi sebagai citra asli. Secara keseluruhan, metode ini dinilai cukup efektif, tetapi memerlukan peningkatan untuk mencapai akurasi yang lebih stabil.|
-|     | Identitas artikel:                                |
+|     |  <b>Identitas artikel:</b>                                   |
 |     |Sibatik Journal, Volume 2, Nomor 9, Tahun 2023. | 
 |      |                                          ||
-|3   | Judul:                                            |Metode:|
+|3   | <b>Judul:</b>                                           |<b>Metode:</b>|
 |     |   FULLY CONVOLUTIONAL VARIATIONAL AUTO<i>encoder</i> FOR FEATURE EXTRACTION OF FIRE DETECTION SYSTEM | Penelitian ini menerapkan fully convolutional variational auto<i>encoder</i> (VAE) untuk melakukan ekstraksi fitur pada citra kebakaran. Arsitekturnya terdiri dari <i>encoder</i>, <i>Bottleneck</i>, dan <i>decoder</i> yang seluruhnya dibangun menggunakan jaringan konvolusional secara berurutan. Model dilatih menggunakan dataset citra api dalam jumlah besar agar mampu mempelajari pola visual penting yang berkaitan dengan objek kebakaran.|
-|      | Penulis:                                         |Temuan:|
+|      | <b>Penulis:</b>                                       |<b>Temuan:</b>|
 |      | Herminarto Nugroho, Meredita Susanty, Ade Irawan, Muhammad Komiyatu, dan Ariana Yunita. |Model VAE yang dikembangkan mampu mengekstraksi informasi penting dari citra api secara efektif. Representasi fitur yang dihasilkan dapat direkonstruksi kembali sehingga membedakan citra yang mengandung api dan yang tidak. Selain itu, metode ini berhasil menurunkan dimensi data tanpa menghilangkan karakteristik utama, sehingga dinilai sesuai untuk mendukung sistem deteksi kebakaran berbasis citra.|
-|     | Identitas artikel:                                |
+|     | <b>Identitas artikel:</b>                                |
 |     |Jurnal Ilmu Komputer dan Informasi, Volume 13, Nomor 1, Tahun 2020. | 
 |      |                                          ||
-|4   | Judul:                                            |Metode:|
+|4   | <b>Judul:</b>                                           |<b>Metode:</b>|
 |     |   Feature Learning Using Deep Variational Auto<i>encoder</i> for Prediction of Defects in Car Engine | Penelitian ini menerapkan pendekatan <i>deep learning</i> dengan mengombinasikan CNN, Variational Auto<i>encoder</i> (VAE), serta teknik SMOTE untuk menangani ketidakseimbangan data. VAE dimanfaatkan sebagai tahap rekonstruksi fitur untuk mereduksi dimensi sekaligus mempertahankan karakteristik penting sebelum proses klasifikasi.|
-|      | Penulis:                                         |Temuan:|
+|      | <b>Penulis:</b>                                         |<b>Temuan:</b>|
 |      | Nanang Susanto & Hilman Ferdinandus Pardede |Model gabungan CNN–SMOTE–VAE berhasil meningkatkan performa secara signifikan dibanding pendekatan dasar. Akurasi akhir mencapai 97,26%, dengan nilai precision tertinggi sebesar 99,63%. Hasil ini menunjukkan bahwa VAE efektif digunakan sebagai mekanisme pembelajaran fitur untuk meningkatkan performa deteksi cacat pada data berskala besar dan tidak seimbang.|
-|     | Identitas artikel:                                |
+|     |  <b>Identitas artikel:</b>                              |
 |     |IEEE Journal, Tahun 2024 | 
 |      |                                          ||
 
@@ -229,43 +229,43 @@ Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpul
 ## **3.1 Tahapan Kerja**
 <img width="482" height="1091" alt="deeplearning" src="https://github.com/user-attachments/assets/5ebfe791-d4bb-478c-a3d8-8bf466b4d1f6" />
 
-**Mulai Penelitian**
+### **3.1.2 Mulai Penelitian**
 <p align="justify">
 Tahap ini merupakan titik awal penelitian, di mana peneliti menentukan topik, tujuan, dan metode yang akan digunakan. Pada tahap ini juga dirumuskan bahwa penelitian akan menggunakan model Variational Auto<i>encoder</i> (VAE) dengan dataset CelebA untuk melakukan pemodelan dan generasi wajah.
 
-**Ambil Dataset CelebA**
+### **3.1.2 Ambil Dataset CelebA**
 <p align="justify">
 Pada langkah ini, dataset CelebA dikumpulkan dari sumber resmi. Dataset ini berisi ratusan gambar wajah manusia yang digunakan sebagai data latih. Data kemudian disiapkan dalam struktur folder agar mudah diproses oleh sistem.
 
-**Preprocessing Gambar (Resize, ToTensor, Normalization)**
+### **3.1.3 Preprocessing Gambar (Resize, ToTensor, Normalization)**
 <p align="justify">
 Tahap ini bertujuan untuk menyiapkan data sebelum masuk ke model. Gambar diubah ukurannya agar seragam (misalnya 128×128 piksel), dikonversi menjadi bentuk tensor, dan dinormalisasi supaya nilai piksel berada dalam rentang yang sesuai untuk pembelajaran model. Proses ini penting agar model dapat belajar dengan stabil dan efisien.
 
-**Proses Training (Loss = Reconstruction + KL Divergence)**
+### **3.1.4 Proses Training (Loss = Reconstruction + KL Divergence)**
 <p align="justify">
 Pada tahap ini model dilatih menggunakan data yang sudah diproses. Model VAE mempelajari bagaimana mengompresi gambar ke ruang laten dan merekonstruksinya kembali. Proses pelatihan berfokus pada minimisasi dua komponen loss, yaitu <i><i>Reconstruction Loss</i></i> untuk mengukur kemiripan hasil rekonstruksi dengan gambar asli dan KL divergence untuk mengatur distribusi data di ruang laten.
 
-**Visualisasi**
+### **3.1.5 Visualisasi**
 <p align="justify">
 Setelah proses training, dilakukan visualisasi untuk melihat hasil kerja model. Pada tahap ini ditampilkan grafik loss selama pelatihan dan beberapa contoh hasil keluaran model untuk mempermudah analisis performa.
 
-**Rekonstruksi**
+### **3.1.6 Rekonstruksi**
 <p align="justify">
 Tahap rekonstruksi menunjukkan kemampuan model dalam membangun kembali gambar yang diberikan sebagai input. Gambar asli dimasukkan ke model, lalu model menghasilkan gambar hasil rekonstruksi. Hasil ini digunakan untuk menilai seberapa baik model memahami struktur data wajah.
 
-**Interpolasi**
+### **3.1.7 Interpolasi**
 <p align="justify">
 Pada tahap ini dilakukan interpolasi di ruang laten, yaitu transisi bertahap antara dua wajah yang berbeda. Tujuannya adalah melihat bagaimana model mempelajari representasi wajah secara kontinu dan bagaimana perubahan antar fitur wajah dapat terjadi secara halus.
 
-**Evaluasi**
+### **3.1.8 Evaluasi**
 <p align="justify">
 Tahap evaluasi dilakukan untuk menilai kinerja model secara keseluruhan. Evaluasi dilakukan dengan membandingkan hasil rekonstruksi, hasil interpolasi, dan nilai loss selama training untuk memastikan model bekerja sesuai tujuan penelitian.
 
-**Kesimpulan Penelitian**
+### **3.1.9 Kesimpulan Penelitian**
 <p align="justify">
 Setelah evaluasi, peneliti menyusun kesimpulan berdasarkan hasil eksperimen. Pada tahap ini dijelaskan apakah model VAE berhasil mempelajari pola wajah dengan baik serta kelebihan dan keterbatasan model yang digunakan.
 
-**Selesai Penelitian**
+### **3.1.10 Selesai Penelitian**
 <p align="justify">
 Tahap ini merupakan akhir dari seluruh rangkaian penelitian. Semua hasil telah dianalisis dan didokumentasikan dalam bentuk laporan atau skripsi, serta diberikan saran untuk pengembangan penelitian selanjutnya.
 
