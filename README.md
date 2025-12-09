@@ -74,5 +74,6 @@ Proyek ini menerapkan VAE dengan menambahkan arsitektur _Residual Blocks_ pada *
 
 ---
 
-|tabel 1|tabel2|
-|ssss|sss|
+**`| Header 1 | Header 2 |`**
+**`:---`, `:---:`, `---:`**
+**`| Sel 1 | Sel 2 |`**
