@@ -56,6 +56,7 @@ Arsitektur VAE diperkenalkan oleh Dienderik P. Kingma dan Max Welling melalui ma
 
 <p align="justify">
 Pendekatan ini memungkinkan terbentuknya ruang laten yang terstruktur, mulus, dan dapat diinterpolasi. Fungsi loss VAE terdiri dari:
+    
 - **Reconstruction Loss**  
 - **Kullback-Leibler Divergence**
 
@@ -419,6 +420,7 @@ Pada tahap Build Model, arsitektur VAE disusun dalam bentuk dua komponen utamaâ€
 
 <p align="justify">    
 Pada tahap training, proses dimulai dengan forward pass, yaitu gambar input dimasukkan ke dalam encoder untuk menghasilkan dua parameter, yaitu mu dan logvar, yang merepresentasikan distribusi laten. Dari parameter ini, model melakukan proses reparameterization untuk menghasilkan nilai laten z, yang kemudian diteruskan ke decoder untuk menghasilkan citra rekonstruksi. Setelah rekonstruksi dihasilkan, model menghitung nilai loss yang terdiri dari dua komponen: Reconstruction Loss (MSE) yang mengukur seberapa mirip citra hasil rekonstruksi dengan citra asli, serta KL Divergence yang memastikan bahwa distribusi laten mendekati distribusi Gaussian standar. Selanjutnya dilakukan backward pass, yaitu proses propagasi balik menggunakan optimizer.zero_grad(), loss.backward(), dan optimizer.step() untuk memperbarui bobot model berdasarkan error yang diperoleh. Pada setiap epoch, model juga menyimpan checkpoint agar hasil pelatihan dapat dipantau dan dilanjutkan, serta menghasilkan sampel wajah baru dari ruang laten. Seluruh proses ini diulang selama beberapa epoch, dan pada tiap epoch dicatat nilai loss rata-rata untuk melihat perkembangan performa model selama pelatihan.
+
 
 <img width="485" height="421" alt="image" src="https://github.com/user-attachments/assets/c90337dc-0145-4b3a-bb6b-d312800eb9c4" />
 
