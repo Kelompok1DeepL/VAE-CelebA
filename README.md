@@ -36,6 +36,7 @@ Autoencoder (AE) dapat mengubah data berukuran besar menjadi representasi yang l
 
 <p align="justify">
 AE berfungsi untuk mengekstrak informasi data, yaitu variabel laten, serta membuang _noise_ yang tidak diperlukan. AE bekerja dengan mengkompresi data input menjadi representasi berdimensi rendah melalui *encoder*, kemudian merekonstruksi kembali data menggunakan *decoder*. Struktur utama AE terdiri dari:
+    
 - **Encoder** → mengekstrak variabel laten,  
 - **Bottleneck** → ruang laten tempat informasi dipadatkan,  
 - **Decoder** → merekonstruksi kembali data ke bentuk semula.
