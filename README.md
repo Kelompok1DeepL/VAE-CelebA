@@ -188,18 +188,15 @@ Persamaan (6) merangkum dua tujuan penting dalam pelatihan VAE. Bagian pertama (
 <p align="justify">
 Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai studi sebelumnya yang berkaitan dengan topik yang disusun. Penelitian-penelitian tersebut dirangkum dalam Tabel 1. berikut:
 
-| No| Profil Pustaka | Metode dan Temuan |
+| No     | Profil Pustaka | Metode dan Temuan |
 | ------ | ------ | ------ |
-|1| Judul:Auto-Encoding Variational Bayes            
-    Penulis:
-    1. Diederik P. Kingma
-    2. Max Welling
-    Identitas artikel:
-    International Conference on Learning, Tahun 2022.  | [plugins/dropbox/README.md][PlDb] |
+|1   | Judul:Auto-Encoding Variational Bayes                | [plugins/dropbox/README.md][PlDb]  |
+|    | Penulis:                                                | |
+|    |    1. Diederik P. Kingma                                | |
+|    |    2. Max Welling                                        |  |
+|    |    Identitas artikel:                                    | |
+|    |    International Conference on Learning, Tahun 2022.  | |
 
-|2| GitHub | [plugins/github/README.md][PlGh] |
-|3| Google Drive | [plugins/googledrive/README.md][PlGd] |
-|4| OneDrive | [plugins/onedrive/README.md][PlOd] |
 
 
 <img width="456" height="626" alt="image" src="https://github.com/user-attachments/assets/ff40379c-5853-470f-b26d-3522bd48e25e" />
