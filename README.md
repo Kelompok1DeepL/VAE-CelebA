@@ -190,12 +190,12 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 
 | No| Profil Pustaka | Metode dan Temuan |
 | ------ | ------ | ------ |
-|1| Judul:Auto-Encoding Variational Bayes             | [plugins/dropbox/README.md][PlDb] |
+|1| Judul:Auto-Encoding Variational Bayes            
     Penulis:
     1. Diederik P. Kingma
     2. Max Welling
     Identitas artikel:
-    International Conference on Learning, Tahun 2022.
+    International Conference on Learning, Tahun 2022.  | [plugins/dropbox/README.md][PlDb] |
 
 |2| GitHub | [plugins/github/README.md][PlGh] |
 |3| Google Drive | [plugins/googledrive/README.md][PlGd] |
