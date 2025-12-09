@@ -120,6 +120,7 @@ Hasil ekstraksi fitur kemudian diratakan <em>(_flattening_)</em> dan diteruskan 
 
 ## **2.1.4 _Autoencoder_**
 <p align="justify">
+    
 _Autoencoder_ merupakan jaringan saraf yang dirancang untuk mempelajari cara merekonstruksi kembali data masukan. Model ini terdiri dari _encoder_ yang memampatkan input menjadi representasi berdimensi rendah, serta _decoder_ yang menghasilkan rekonstruksi dari representasi tersebut. Meskipun mampu menyalin ulang data, nilai utama _autoencoder_ sering terletak pada representasi latennya yang dapat digunakan untuk berbagai tugas analisis (César Pérez Curiel, 2022). Untuk memberikan gambaran visual mengenai proses kompresi dan rekonstruksi pada autoencoder, ilustrasinya disajikan pada Gambar 1.
 
 <img width="940" height="522" alt="image" src="https://github.com/user-attachments/assets/8911c85e-0c6f-40a1-8a67-6261794bc4c6" />
