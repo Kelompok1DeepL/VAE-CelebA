@@ -150,13 +150,27 @@ Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpul
 
 ## **Daftar Pustaka**
 
+Susanto, N., & Pardede, H. (2024). Feature learning using deep variational autoencoder for prediction of defects in car engine (pp. 311–316). https://doi.org/10.1109/ICITRI62858.2024.10699115
+
+Nugroho, H., Susanty, M., Irawan, A., Koyimatu, M., & Yunita, A. (2020). Fully convolutional variational autoencoder for feature extraction of fire detection system. Jurnal Ilmu Komputer dan Informasi, 13(1), 9–15. https://doi.org/10.21609/jiki.v13i1.761
+
+3. Giger, M., & Csillaghy, A. (2024). Unsupervised anomaly detection with variational autoencoders applied to full-disk solar images. Space Weather, 22, e2023SW003516. https://doi.org/10.1029/2023SW003516
+
+Kingma, D. P., & Welling, M. (2022). Auto-encoding variational Bayes. arXiv. https://arxiv.org/abs/1312.6114
 
 Alfarizi M. Riziq Sirfatullah, Al-farish Muhamad Zidan, Taufiqurrahman Muhamad, Ardiansah Ginan, & Elgar Muhamad. (2023). Penggunaan Python Sebagai Bahasa Pemrograman untuk Machine Learning dan Deep Learning. Karya Ilmiah Mahasiswa Bertauhid (KARIMAH TAUHID), 2(1), 1–6.
+
 Angelika Septi Rahayu, R., & Santoso, H. (2023). Analysis of Fake Face Images: Detecting the Authenticity of Manipulated Images Using Variational Autoencoder Methods and Deep Neural Network Forensics. Sibatik Journal | Volume, 2(9), 2701–2726. https://publish.ojs-indonesia.com/index.php/SIBATIK
+
 César Pérez Curiel. (2022). Análisis del espacio latente en el auto-encoder variacional. https://oa.upm.es/71832/1/TESIS_MASTER_CESAR_PEREZ_CURIEL.pdf
+
 Cristovao, P., Nakada, H., Tanimura, Y., & Asoh, H. (2020). Generating In-Between Images through Learned Latent Space Representation Using Variational Autoencoders. IEEE Access, 8, 149456–149467. https://doi.org/10.1109/ACCESS.2020.3016313
+
 Dao, T. Van, Sato, H., & Kubo, M. (2022). An Attention Mechanism for Combination of CNN and VAE for Image-Based Malware Classification. IEEE Access, 10(August), 85127–85136. https://doi.org/10.1109/ACCESS.2022.3198072
+
 Mauludiah, S. F. (2025). A SYNERGISTIC APPROACH TO E-COMMERCE RECOMMENDER SYSTEM : LOGISTIC REGRESSION AND KULLBACK-LEIBLER DIVERGENCE. http://scioteca.caf.com/bitstream/handle/123456789/1091/RED2017-Eng-8ene.pdf?sequence=12&isAllowed=y%0Ahttp://dx.doi.org/10.1016/j.regsciurbeco.2008.06.005%0Ahttps://www.researchgate.net/publication/305320484_SISTEM_PEMBETUNGAN_TERPUSAT_STRATEGI_MELESTARI
+
 Metlapalli, A. C., Muthusamy, T., & Battula, B. P. (2020). Classification of social media text spam using VAE-CNN and LSTM model. Ingenierie Des Systemes d’Information, 25(6), 747–753. https://doi.org/10.18280/isi.250605
+
 Noguer I Alonso, M. (2024). The Mathematics of Autoencoders and Variational Autoencoders. Ssrn, 1–8. https://www.ssrn.com/abstract=4999896
 
