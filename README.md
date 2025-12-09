@@ -96,7 +96,7 @@ Proyek ini menerapkan VAE dengan menambahkan arsitektur _Residual Blocks_ pada *
 # **BAB II — TINJAUAN PUSTAKA**
 
 ## **2.1 Kerangka Teori**
-## **2.1.1 Dataset CelebA**
+### **2.1.1 Dataset CelebA**
 
 <p align="justify">
 Dataset _CelebFaces Attributes_ (CelebA) merupakan salah satu dataset wajah yang banyak digunakan dalam bidang computer vision dan deep learning, terutama untuk berbagai aplikasi yang membutuhkan identifikasi wajah dan analisis atribut wajah. Dataset dirancang untuk mendukung beragam penelitian, mulai dari pengenalan ekspresi, pendeteksian atribut seperti seseorang yang tersenyum, memiliki rambut berwarna tertentu, hingga penggunaan kacamata. Gambar-gambar pada CelebA mencakup variasi pose, kondisi latar belakang yang bervariasi, serta individu dari berbagai karakteristik, sehingga sangat cocok untuk proses pelatihan dan pengujian model berbasis citra wajah. Dataset ini awalnya dikembangkan oleh tim penelitian di MMLAB, The Chinese University of Hong Kong.
@@ -107,25 +107,25 @@ Secara keseluruhan, CelebA terdiri dari 200 gambar wajah selebriti, dengan total
 <p align="justify">
 CelebA digunakan secara luas untuk keperluan penelitian akademik dan tersedia hanya untuk penggunaan non-komersial. Dataset ini telah menjadi dasar bagi banyak studi terkait deteksi dan pengenalan wajah, termasuk penelitian oleh Yang, Luo, Loy, dan Tang (2015) yang mengembangkan pendekatan deteksi wajah berbasis pembelajaran mendalam. Dengan jumlah data yang besar, anotasi yang lengkap, serta keberagaman gambar yang tinggi, CelebA menjadi pilihan ideal untuk membangun dan mengevaluasi model-model yang bertujuan mengenali atribut wajah atau menghasilkan kembali citra wajah secara otomatis.
 
-## **2.1.2 _Deep Learning_**
+### **2.1.2 _Deep Learning_**
 <p align="justify">
 _Deep Learning_ merupakan bagian dari _Machine Learning_ yang dikembangkan berdasarkan cara kerja jaringan saraf biologis pada otak manusia. Pendekatan ini menggunakan model yang disebut Jaringan Saraf Tiruan (_Artificial Neural Networks_/ANN), yang tersusun dari lapisan-lapisan neuron buatan untuk memproses informasi secara berjenjang. Di dalam _Deep Learning_, terdapat berbagai jenis arsitektur yang dirancang untuk tugas tertentu, seperti _Convolutional Neural Network_ (CNN) untuk pengolahan citra, _Recurrent Neural Network_ (RNN) dan _Long Short-Term Memory_ (LSTM) untuk data berurutan, serta _Self Organizing Maps_ (SOM) untuk pemetaan dan pengelompokan data (Alfarizi M. Riziq Sirfatullah et al., 2023).
 
-## **2.1.3 _Convolutional Neural Network_ (CNN)**
+### **2.1.3 _Convolutional Neural Network_ (CNN)**
 <p align="justify">
 _Convolutional Neural Network_ (CNN) adalah arsitektur _deep learning_ yang dirancang untuk mempelajari pola penting dari data yang memiliki struktur, seperti citra maupun teks. Model ini tersusun atas beberapa jenis lapisan yang bekerja secara bertahap. Bagian konvolusi berfungsi mengekstraksi ciri menggunakan kernel yang bergerak melintasi data input dan menghasilkan _feature map_ yang mewakili pola-pola penting. Setelah itu, lapisan _pooling_ mereduksi ukuran representasi tersebut sehingga model menjadi lebih efisien dan lebih tahan terhadap perubahan posisi atau pergeseran fitur.
 
 <p align="justify">
 Hasil ekstraksi fitur kemudian diratakan <em>(_flattening_)</em> dan diteruskan ke lapisan _fully connected_ untuk proses klasifikasi akhir. Keunggulan utama CNN terletak pada kemampuannya melakukan ekstraksi fitur secara otomatis tanpa memerlukan rekayasa fitur manual, serta sifat _spatial invariance_ yang membuat model tetap mampu mengenali pola meskipun terjadi perubahan posisi atau bentuk kecil pada input. Pendekatan ini menjadikan CNN efektif digunakan dalam berbagai tugas klasifikasi berbasis gambar maupun data teks berurutan (Metlapalli et al., 2020).
 
-## **2.1.4 _Autoencoder_**
+### **2.1.4 _Autoencoder_**
 <p align="justify"> 
 _Autoencoder_ merupakan jaringan saraf yang dirancang untuk mempelajari cara merekonstruksi kembali data masukan. Model ini terdiri dari _encoder_ yang memampatkan input menjadi representasi berdimensi rendah, serta _decoder_ yang menghasilkan rekonstruksi dari representasi tersebut. Meskipun mampu menyalin ulang data, nilai utama _autoencoder_ sering terletak pada representasi latennya yang dapat digunakan untuk berbagai tugas analisis (César Pérez Curiel, 2022). Untuk memberikan gambaran visual mengenai proses kompresi dan rekonstruksi pada autoencoder, ilustrasinya disajikan pada Gambar 1.
     
 <p align="justify"> 
 <img width="940" height="522" alt="image" src="https://github.com/user-attachments/assets/8911c85e-0c6f-40a1-8a67-6261794bc4c6" />
 
-## **2.1.5 _Variational Autoencoder_ (VAE)**
+### **2.1.5 _Variational Autoencoder_ (VAE)**
 <p align="justify">
 _Variational Autoencoder_ (VAE) merupakan pengembangan dari metode _autoencoder_ tradisional. Pada dasarnya, autoencoder terdiri atas dua komponen utama, yaitu _encoder_ yang bertugas mengubah data berdimensi besar menjadi representasi yang lebih ringkas, serta _decoder_ yang berfungsi mengembalikan representasi tersebut ke bentuk mendekati data awal. Namun, _autoencoder_ biasa cenderung menghasilkan rekonstruksi yang terlalu mirip dengan input sehingga kurang mampu menghasilkan variasi baru. Untuk mengatasi keterbatasan tersebut, VAE memperkenalkan pendekatan probabilistik pada bagian _encoder_ dan menambahkan komponen regularisasi dalam fungsi loss agar ruang laten lebih stabil dan terorganisasi dengan baik (Angelika Septi Rahayu & Santoso, 2023).
 
@@ -141,7 +141,7 @@ Untuk membentuk ruang laten yang terstruktur, VAE membuat _encoder_ menghasilkan
 <p align="justify">
 Persamaan (2) menunjukkan bahwa nilai z tidak diambil langsung dari distribusi Gaussian, melainkan diperoleh melalui fungsi transformasi g∅ yang memanfaatkan _noise_ . Dengan cara ini, proses _sampling_ tetap dapat dimasukkan ke dalam alur _backpropagation_. Dengan kombinasi mekanisme rekonstruksi, regularisasi KL, dan _reparameterization trick_, VAE mampu menciptakan ruang laten yang lebih konsisten dan memungkinkan pembangkitan data baru dengan pola yang serupa dengan data asli (Dao et al., 2022).
 
-## **2.1.6 _Kullback-Leibler_ (KL) _Divergence_**
+### **2.1.6 _Kullback-Leibler_ (KL) _Divergence_**
 <p align="justify">
 _Kullback-Leibler_ (KL) _Divergence_ merupakan ukuran yang digunakan untuk melihat sejauh mana suatu distribusi probabilitas berbeda dari distribusi acuan. Nilai KL digunakan untuk menilai seberapa besar informasi baru yang terkandung dalam suatu distribusi dibandingkan dengan referensinya. Semakin besar nilai _divergence_, semakin besar pula perbedaan kedua distribusi tersebut. Sebaliknya, nilai yang kecil menunjukkan bahwa distribusi tersebut memiliki kemiripan yang tinggi. Rumus _KL Divergence_ secara umum dapat ditulis sebagai (_KL Divergence_):
 
@@ -150,21 +150,21 @@ _Kullback-Leibler_ (KL) _Divergence_ merupakan ukuran yang digunakan untuk melih
 <p align="justify">
 Persamaan (3) dilakukan untuk menghitung selisih logaritmatik antara dua distribusi probabilitas dan menjadi dasar bagi berbagai metode analisis berbasis distribusi. Dalam implementasinya, distribusi biasanya dinormalisasi terlebih dahulu dan nilai yang sangat kecil diberi batas minimum untuk menghindari masalah perhitungan seperti algoritma nol. Teknik ini memastikan proses komputasi tetap stabil dan akurat.
 
-## **2.1.7 _Latent Space Representation_**
+### **2.1.7 _Latent Space Representation_**
 <p align="justify">
 Data dengan dimensi tinggi umumnya dapat diproyeksikan ke ruang yang lebih ringkas melalui proses pembentukan latent representations. Representasi laten ini menyimpan informasi penting dari data asli dan sering kali dimanfaatkan untuk berbagai tugas lanjutan. Namun, tanpa adanya mekanisme pengaturan, ruang laten cenderung tidak terstruktur sehingga sulit dikendalikan maupun diinterpretasikan.
 
 <p align="justify">
 Untuk mengatasi masalah tersebut, pendekatan β-VAE digunakan untuk membatasi kapasitas ruang laten sehingga model hanya menangkap fitur penting dari data melalui mekanisme regularisasi pada fungsi loss. Pendekatan ini mendorong model untuk menangkap fitur-fitur paling signifikan dari data sehingga representasi laten menjadi lebih terorganisasi dan lebih mudah dipahami. Representasi yang teratur ini bermanfaat pada berbagai aplikasi generatif, termasuk interpolasi citra (Cristovao et al., 2020).
 
-## **2.1.8 _Residual Block_**
+### **2.1.8 _Residual Block_**
 <p align="justify">
 Residual block merupakan elemen arsitektural yang digunakan untuk meningkatkan stabilitas proses pelatihan serta kualitas representasi fitur pada model _Variational Autoencoder_ (VAE). Dalam pendekatan _Multiscale Residual_ VAE, _residual block_ ditempatkan pada bagian _encoder_ maupun _decoder_ untuk menjaga agar informasi penting tetap mengalir dengan baik selama proses propagasi. Mekanisme ini memungkinkan jaringan mempelajari fitur secara lebih mendalam tanpa mengalami kendala umum seperti _vanishing gradient_ ketika jumlah lapisan semakin bertambah.
 
 <p align="justify">
 Selain memberikan jalur informasi tambahan melalui koneksi residual, blok ini juga membantu memperkaya karakteristik ruang laten sehingga representasi yang dihasilkan menjadi lebih halus dan bermakna. Dampaknya terlihat pada peningkatan kualitas rekonstruksi terutama pada citra dengan struktur kompleks. Penerapan residual block telah terbukti efektif dalam berbagai model generatif, termasuk arsitektur VAE multiskala yang memanfaatkan _residual connections_ untuk menghasilkan detail visual yang lebih realistis dan stabil (Diamantis et al., 2024)
 
-## **2.1.9 _Evidance Lower Bound_ (ELBO)**
+### **2.1.9 _Evidance Lower Bound_ (ELBO)**
 <p align="justify">
 Pada _Variational Autoencoder_ (VAE), proses pelatihan dilakukan dengan memaksimalkan _Evidence Lower Bound_ (ELBO), yang menjadi batas bawah dari _log-likelihood_ data. Pendekatan ini digunakan karena posterior sebenarnya p∅(z|x) tidak dapat dihitung secara langsung, sehingga diperlukan distribusi pendekatan q∅(z|x) untuk membangun fungsi objektif yang dapat dioptimalkan.
 Dalam kerangka _variational inference_, _log-likelihood_ dapat dituliskan ulang sebagaimana ditunjukkan pada Persamaan (4):
@@ -184,7 +184,7 @@ Persamaan (5) ini menggambarkan seberapa jauh distribusi laten hasil _encoder_ m
 <p align="justify">
 Persamaan (6) merangkum dua tujuan penting dalam pelatihan VAE. Bagian pertama (_reconstruction term_) mengukur seberapa baik model dapat membangun kembali input. Bagian kedua (_KL term_) memastikan distribusi laten tetap mendekati prior. Kombinasi keduanya menghasilkan rekonstruksi yang baik sekaligus ruang laten yang stabil dan teratur, yang penting untuk berbagai aplikasi generatif dan analisis representasi.
 
-## **2.1 Kerangka Teori**
+## **2.2 Penelitian Teradahulu**
 <p align="justify">
 Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai studi sebelumnya yang berkaitan dengan topik yang disusun. Penelitian-penelitian tersebut dirangkum dalam Tabel 1. berikut:
 
