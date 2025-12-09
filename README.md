@@ -30,6 +30,7 @@ Dalam bidang kecerdasan buatan (Artificial Intelligence), deep learning merupaka
 
 <p align="justify">
 Autoencoder (AE) dapat mengubah data berukuran besar menjadi representasi yang lebih kecil tanpa kehilangan informasi penting. Metode ini banyak dimanfaatkan untuk:
+    
 - ekstraksi fitur secara otomatis,
 - kompresi data visual,
 - deteksi anomali.
@@ -49,6 +50,7 @@ Susanto dan Pardede membandingkan penggunaan AE dan VAE untuk reduksi dimensi pa
 
 <p align="justify">
 Arsitektur VAE diperkenalkan oleh Dienderik P. Kingma dan Max Welling melalui makalah Auto-Encoding Variational Bayes pada tahun 2013. Variational Autoencoder (VAE) merupakan model generatif probabilistik yang mengkodekan variabel laten sebagai distribusi probabilitas. VAE mengestimasi dua vektor, antara lain:
+    
 - **rata-rata (μ)**  
 - **standar deviasi (σ)**  
 
