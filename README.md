@@ -156,7 +156,7 @@ Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpul
 
 # **BAB III — METODOLOGI**
 ## **3.1 Tahapan Kerja**
-<img width="496" height="1031" alt="deeplearning" src="https://github.com/user-attachments/assets/93bacef8-e53a-4b0d-808f-56575a6016ac" />
+<img width="496" height="1031" alt="deeplearning" src="https://github.com/user-attachments/assets/30c49a9e-1730-4e0b-bf1d-3271f03b0065" />
 
 
 
