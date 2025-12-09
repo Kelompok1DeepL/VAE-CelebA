@@ -156,7 +156,7 @@ Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpul
 
 # **BAB III — METODOLOGI**
 ## **3.1 Tahapan Kerja**
-<img width="496" height="891" alt="deeplearning" src="https://github.com/user-attachments/assets/7ee8ab58-99f6-4222-a08e-11f26ced0896" />
+
 
 
 ## **3.2 Dataset**
