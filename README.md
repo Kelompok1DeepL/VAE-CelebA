@@ -236,6 +236,7 @@ Tahap ini merupakan akhir dari seluruh rangkaian penelitian. Semua hasil telah d
 
 
 ## **3.2 Dataset**
+<p align="justify">
 Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset (CelebA) dari kaggle (https://www.kaggle.com/datasets/jessicali9530/celeba-dataset), yaitu kumpulan citra wajah manusia yang sangat populer untuk tugas‑tugas computer vision dan model generatif. Dataset ini berisi 200 gambar wajah dengan resolusi asli 178 × 218 piksel, menampilkan beragam ekspresi, posisi kepala, kondisi pencahayaan, serta variasi karakteristik wajah lainnya. Pada proses pra‑pengolahan di notebook, seluruh gambar diubah ukurannya menjadi 128 × 128 piksel agar sesuai dengan arsitektur model VAE yang digunakan. Dataset CelebA dipilih karena ukurannya yang besar dan keragamannya yang tinggi, sehingga cocok untuk tugas seperti rekonstruksi wajah, pembelajaran distribusi laten wajah, generasi citra baru, dan interpolasi di ruang laten. Transformasi pada data dilakukan menggunakan modul torchvision.transforms, yang meliputi Resize untuk menyesuaikan resolusi gambar, ToTensor untuk mengubah gambar dari format PIL/NumPy menjadi tensor PyTorch berukuran (C, H, W) dengan skala piksel 0–1, serta Normalize dengan mean dan standar deviasi 0.5 agar nilai piksel berada pada rentang –1 hingga 1. Normalisasi ini membantu stabilitas proses pelatihan dan mempercepat konvergensi model VAE.
 
 # **BAB IV — HASIL & PEMBAHASAN**
@@ -249,7 +250,9 @@ Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset
     
     print("Done!") 
 
+<p align="justify">
 Pada tahap ini, dataset CelebA (CelebFaces Attributes Dataset) dimuat menggunakan ImageFolder. Dataset ini berisi 200 gambar wajah manusia dengan berbagai variasi ekspresi, pencahayaan, dan sudut pandang. Setiap gambar melalui proses preprocessing berupa:
+    
 - Resize (128×128 piksel) agar sesuai dengan arsitektur VAE.
 - ToTensor() untuk mengubah gambar dari format PIL menjadi tensor PyTorch.
 - Normalize(mean=0.5, std=0.5) agar nilai piksel berada pada rentang −1,1 sehingga training lebih stabil.
@@ -363,6 +366,7 @@ Dataset kemudian dimasukkan ke DataLoader dengan batch size tertentu (misalnya 6
         recon = self.decoder(z)
         return recon, mu, logvar
         
+<p align="justify">
 Pada tahap Build Model, arsitektur VAE disusun dalam bentuk dua komponen utama—Encoder dan Decoder—yang bekerja sama untuk mempelajari representasi laten dari gambar wajah. Encoder mengambil gambar berukuran 128×128×3 dan melakukan proses ekstraksi fitur melalui beberapa lapisan Convolutional dan ReLU yang disertai ResidualBlock agar pembelajaran fitur lebih stabil. Proses ini sekaligus melakukan downsampling bertahap hingga menghasilkan feature map berukuran 4×4 dengan channel besar, kemudian di-flatten untuk menentukan ukuran vektor yang akan dihubungkan ke dua fully connected layer. Dua layer ini membentuk output berupa μ (mean) dan logσ² (log-variance), yang merupakan representasi statistik dari distribusi laten. Selanjutnya, VAE menggunakan reparameterization trick untuk mengubah kedua nilai tersebut menjadi vektor laten z yang dapat di-backpropagate. Pada sisi lain, Decoder mengambil vektor laten z dan mengubahnya kembali menjadi gambar melalui fully connected layer yang membentuk kembali tensor 4×4×channel, kemudian memprosesnya melalui beberapa lapisan ConvTranspose2D dengan ResidualBlock untuk melakukan upsampling hingga ukuran kembali menjadi 128×128×3. Proses ini memungkinkan model melakuk
 
 ## **4.3 Training Loop**
@@ -413,29 +417,33 @@ Pada tahap Build Model, arsitektur VAE disusun dalam bentuk dua komponen utama�
 
     vae.train()
 
-    
+<p align="justify">    
 Pada tahap training, proses dimulai dengan forward pass, yaitu gambar input dimasukkan ke dalam encoder untuk menghasilkan dua parameter, yaitu mu dan logvar, yang merepresentasikan distribusi laten. Dari parameter ini, model melakukan proses reparameterization untuk menghasilkan nilai laten z, yang kemudian diteruskan ke decoder untuk menghasilkan citra rekonstruksi. Setelah rekonstruksi dihasilkan, model menghitung nilai loss yang terdiri dari dua komponen: Reconstruction Loss (MSE) yang mengukur seberapa mirip citra hasil rekonstruksi dengan citra asli, serta KL Divergence yang memastikan bahwa distribusi laten mendekati distribusi Gaussian standar. Selanjutnya dilakukan backward pass, yaitu proses propagasi balik menggunakan optimizer.zero_grad(), loss.backward(), dan optimizer.step() untuk memperbarui bobot model berdasarkan error yang diperoleh. Pada setiap epoch, model juga menyimpan checkpoint agar hasil pelatihan dapat dipantau dan dilanjutkan, serta menghasilkan sampel wajah baru dari ruang laten. Seluruh proses ini diulang selama beberapa epoch, dan pada tiap epoch dicatat nilai loss rata-rata untuk melihat perkembangan performa model selama pelatihan.
 
 <img width="485" height="421" alt="image" src="https://github.com/user-attachments/assets/c90337dc-0145-4b3a-bb6b-d312800eb9c4" />
 
-
+<p align="justify">
 Selama proses training selama 100 epoch, nilai loss model VAE menunjukkan penurunan yang konsisten dari sekitar 288 pada epoch awal hingga mencapai sekitar 221 pada epoch terakhir. Pola penurunan ini terlihat stabil meskipun terdapat sedikit fluktuasi antar‑batch, yang merupakan hal wajar pada training model generatif. Penurunan loss ini mencerminkan bahwa model semakin baik dalam melakukan dua hal utama: merekonstruksi gambar input dan membentuk distribusi latent yang sesuai dengan prior Gaussian. Setiap epoch menghasilkan checkpoint dan sampel gambar baru, yang memperlihatkan bahwa kualitas rekonstruksi dan gambar hasil generasi semakin meningkat seiring menurunnya loss. Secara keseluruhan, hasil training loop menunjukkan bahwa VAE berhasil belajar dan mengalami konvergensi yang baik.
 
 ## **4.4 Train Loss**
 <img width="695" height="470" alt="image" src="https://github.com/user-attachments/assets/fd42ad8f-bb74-42be-8a57-60430433c9b3" />
+<p align="justify">
 Grafik Training Loss per Epoch menunjukkan bagaimana nilai error pada model Variational Autoencoder (VAE) berubah sepanjang proses pelatihan dari epoch 1 hingga 100. Pada awal pelatihan, nilai loss berada pada kisaran yang cukup tinggi, sekitar 290, dan mengalami fluktuasi yang cukup tajam pada 10–15 epoch pertama. Hal ini merupakan kondisi wajar karena model masih berada pada tahap awal pembelajaran, bobot masih acak, dan proses reparameterization (yang melibatkan mu dan logvar) belum stabil sepenuhnya. Setelah melewati fase awal yang fluktuatif, grafik menunjukkan penurunan loss yang lebih konsisten dan bertahap, menandakan bahwa model mulai berhasil mempelajari pola wajah dalam dataset dan meningkatkan kemampuan rekonstruksi. Memasuki epoch 40 hingga 80, nilai loss terus menurun secara stabil dengan perubahan yang lebih halus, menunjukkan bahwa model berada dalam fase optimasi yang baik. Pada epoch mendekati 100, grafik tampak mulai mendatar, menandakan bahwa model mendekati kondisi konvergensi, di mana penurunan loss tidak lagi signifikan meskipun pelatihan dilanjutkan. Secara keseluruhan, grafik ini menunjukkan bahwa proses pelatihan berjalan dengan baik dan stabil, di mana nilai loss menurun secara signifikan dari awal hingga akhir epoch, yang berarti model berhasil belajar representasi laten dan mampu melakukan rekonstruksi gambar dengan semakin baik seiring bertambahnya epoch.
 
 ## **4.5 Hasil Training: Rekonstruksi**
 <img width="1244" height="350" alt="image" src="https://github.com/user-attachments/assets/1e7cf9c3-3016-4b1e-9e0f-5cce71ae544e" />
+<p align="justify">
 Pada visualisasi rekonstruksi, baris pertama menampilkan gambar asli yang diambil dari dataset CelebA, sedangkan baris kedua menunjukkan hasil rekonstruksi yang dihasilkan oleh decoder setelah melalui proses encoding dan sampling latent. Dari gambar terlihat bahwa model mampu mempertahankan struktur global wajah, seperti bentuk muka, posisi mata, kontur hidung, serta warna rambut. Setiap wajah pada baris kedua masih menyerupai wajah pada baris pertama dalam hal komposisi dan proporsi. Namun, rekonstruksi terlihat lebih buram dan kurang detail, terutama pada area rambut dan tekstur kulit. Beberapa hasil juga tampak mengalami sedikit distorsi atau noise pada bagian pinggir gambar, yang menunjukkan bahwa model masih memiliki keterbatasan dalam menghasilkan detail resolusi tinggi. Meski demikian, kecocokan bentuk dan fitur utama menunjukkan bahwa VAE dengan residual blocks telah berhasil mempelajari pola distribusi wajah secara memadai sehingga dapat mengembalikan citra dengan konsistensi yang baik pada tingkat global.
 
 ## **4.6 Hasil: Latent Interpolation**
 <img width="1570" height="199" alt="image" src="https://github.com/user-attachments/assets/4d75dab7-425b-4eba-aa96-77ca8bac5f1c" />
+<p align="justify">
 Pada bagian latent interpolation, dua wajah yang berbeda dijadikan titik awal dan titik akhir. Gambar interpolasi di antara keduanya menunjukkan perubahan bertahap dari wajah A menuju wajah B. Perubahan terjadi secara mulus: mulai dari bentuk wajah, ekspresi, tekstur rambut, hingga tone warna kulit. Pada gambar yang kamu tampilkan, wajah pada sisi kiri terlihat lebih gelap dan memiliki gaya rambut tertentu, kemudian secara perlahan berubah menjadi wajah dengan rambut lebih terang dan bentuk wajah berbeda pada sisi kanan. Transisi antar frame terlihat halus dan konsisten, tanpa perubahan mendadak atau artefak besar, yang menunjukkan bahwa latent space model tersusun dengan baik dan bersifat kontinu. Ini membuktikan bahwa VAE tidak sekadar menghafal gambar, tetapi benar‑benar mempelajari representasi abstrak yang memungkinkan perpindahan fitur secara logis di ruang laten.
 
 # **BAB V — KESIMPULAN**
+<p align="justify">
 Penelitian ini berhasil menunjukkan bahwa Variational Autoencoder (VAE) dengan tambahan Residual Blocks mampu mempelajari representasi laten dari citra wajah CelebA dan menghasilkan rekonstruksi serta interpolasi yang cukup baik meskipun dataset yang digunakan relatif kecil. Model yang dibangun mampu memampatkan citra wajah ke dalam ruang laten berdimensi rendah dan mengembalikannya menjadi citra yang menyerupai input. Hasil rekonstruksi menunjukkan bahwa struktur global wajah seperti bentuk muka, posisi mata, hidung, dan rambut dapat dipertahankan, meskipun detail halus seperti tekstur kulit masih tampak buram.
-
+<p align="justify">
 Selama proses training, loss model menurun secara konsisten dari sekitar 288 menjadi sekitar 221, menandakan bahwa model berhasil belajar dan mencapai konvergensi. Penggunaan Residual Blocks terbukti membantu stabilitas proses pelatihan dan mengurangi hilangnya informasi pada tahap encoding maupun decoding. Selain itu, hasil interpolasi pada ruang laten memperlihatkan transisi wajah yang halus dan kontinu dari satu identitas ke identitas lain. Hal ini membuktikan bahwa model tidak hanya menghafal gambar, tetapi juga mempelajari struktur laten yang bermakna dan terorganisasi. Secara keseluruhan, penelitian ini menunjukkan bahwa VAE dengan Residual Blocks dapat bekerja efektif pada citra wajah dan mampu menghasilkan rekonstruksi serta citra sintetis yang cukup realistis.
 
 # **DAFTAR PUSTAKA**
