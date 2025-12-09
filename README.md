@@ -26,7 +26,7 @@ UNIVERSITAS PEMBANGUNAN NASIONAL "VETERAN" JAWA TIMUR
 
 ## **Latar Belakang**
 <p align="justify">
-Dalam bidang kecerdasan buatan (Artificial Intelligence), deep learning merupakan metode yang populer untuk pemrosesan citra, khususnya dengan memanfaatkan kemampuan jaringan saraf tiruan untuk mengekstrak fitur dari data berdimensi tinggi. Hal ini memicu pengembangan model generatif yang bertujuan untuk mempelajari representasi data sehingga sistem mampu menghasilkan sampel baru yang relevan. Salah satu arsitektur generatif yang banyak digunakan adalah <strong>Autoencoder (AE)</strong>.
+Dalam bidang kecerdasan buatan (Artificial Intelligence), deep learning merupakan metode yang populer untuk pemrosesan citra, khususnya dengan memanfaatkan kemampuan jaringan saraf tiruan untuk mengekstrak fitur dari data berdimensi tinggi. Hal ini memicu pengembangan model generatif yang bertujuan untuk mempelajari representasi data sehingga sistem mampu menghasilkan sampel baru yang relevan. Salah satu arsitektur generatif yang banyak digunakan adalah <b>Autoencoder (AE)</b>.
 
 <p align="justify">
 Autoencoder (AE) dapat mengubah data berukuran besar menjadi representasi yang lebih kecil tanpa kehilangan informasi penting. Metode ini banyak dimanfaatkan untuk:
@@ -36,14 +36,14 @@ Autoencoder (AE) dapat mengubah data berukuran besar menjadi representasi yang l
 - deteksi anomali.
 
 <p align="justify">
-AE berfungsi untuk mengekstrak informasi data, yaitu variabel laten, serta membuang _noise_ yang tidak diperlukan. AE bekerja dengan mengkompresi data input menjadi representasi berdimensi rendah melalui *encoder*, kemudian merekonstruksi kembali data menggunakan <b>decoder</b>. Struktur utama AE terdiri dari:
+AE berfungsi untuk mengekstrak informasi data, yaitu variabel laten, serta membuang <i>noise</i> yang tidak diperlukan. AE bekerja dengan mengkompresi data input menjadi representasi berdimensi rendah melalui <b>encoder</b>, kemudian merekonstruksi kembali data menggunakan <b>decoder</b>. Struktur utama AE terdiri dari:
     
 - **Encoder** → mengekstrak variabel laten,  
 - **Bottleneck** → ruang laten tempat informasi dipadatkan,  
 - **Decoder** → merekonstruksi kembali data ke bentuk semula.
 
 <p align="justify">
-AE memiliki kemampuan untuk mengompres data ke dalam ruang laten berdimensi rendah. Namun, representasi laten yang dihasilkan AE sering tidak terstruktur sehingga keterampilan model dalam menghasilkan sampel baru menjadi terbatas. Hal ini dapat diatasi dengan **Variational Autoencoder (VAE)**.
+AE memiliki kemampuan untuk mengompres data ke dalam ruang laten berdimensi rendah. Namun, representasi laten yang dihasilkan AE sering tidak terstruktur sehingga keterampilan model dalam menghasilkan sampel baru menjadi terbatas. Hal ini dapat diatasi dengan <b>Variational Autoencoder (VAE)</b>.
 
 <p align="justify">
 Susanto dan Pardede membandingkan penggunaan AE dan VAE untuk reduksi dimensi pada prediksi cacat mesin mobil. Hasil penelitian menunjukkan bahwa VAE menghasilkan kinerja yang lebih baik dibandingkan AE.
@@ -91,10 +91,14 @@ Proyek ini menerapkan VAE dengan menambahkan arsitektur _Residual Blocks_ pada *
 
 ## **2.1 Kerangka Teori**
 ## **2.1.1 Dataset CelebA**
+
+<p align="justify">
 Dataset _CelebFaces Attributes_ (CelebA) merupakan salah satu dataset wajah yang banyak digunakan dalam bidang computer vision dan deep learning, terutama untuk berbagai aplikasi yang membutuhkan identifikasi wajah dan analisis atribut wajah. Dataset dirancang untuk mendukung beragam penelitian, mulai dari pengenalan ekspresi, pendeteksian atribut seperti seseorang yang tersenyum, memiliki rambut berwarna tertentu, hingga penggunaan kacamata. Gambar-gambar pada CelebA mencakup variasi pose, kondisi latar belakang yang bervariasi, serta individu dari berbagai karakteristik, sehingga sangat cocok untuk proses pelatihan dan pengujian model berbasis citra wajah. Dataset ini awalnya dikembangkan oleh tim penelitian di MMLAB, The Chinese University of Hong Kong.
 
+<p align="justify">
 Secara keseluruhan, CelebA terdiri dari 200 gambar wajah selebriti, dengan total 10.177 identitas berbeda, walaupun informasi nama tidak disertakan. Setiap gambar dilengkapi dengan 40 anotasi atribut biner yang menggambarkan karakteristik wajah tertentu serta lima titik landmark yang meliputi posisi kedua mata, hidung, dan dua titik mulut. Dataset ini juga menyediakan berbagai berkas pendukung, seperti kumpulan gambar wajah yang telah melalui proses cropping dan alignment, pembagian data yang direkomendasikan untuk pelatihan, validasi, pengujian, informasi _bounding box_, serta berkas anotasi atribut untuk seluruh gambar.
 
+<p align="justify">
 CelebA digunakan secara luas untuk keperluan penelitian akademik dan tersedia hanya untuk penggunaan non-komersial. Dataset ini telah menjadi dasar bagi banyak studi terkait deteksi dan pengenalan wajah, termasuk penelitian oleh Yang, Luo, Loy, dan Tang (2015) yang mengembangkan pendekatan deteksi wajah berbasis pembelajaran mendalam. Dengan jumlah data yang besar, anotasi yang lengkap, serta keberagaman gambar yang tinggi, CelebA menjadi pilihan ideal untuk membangun dan mengevaluasi model-model yang bertujuan mengenali atribut wajah atau menghasilkan kembali citra wajah secara otomatis.
 
 ## **2.1.2 _Deep Learning_**
