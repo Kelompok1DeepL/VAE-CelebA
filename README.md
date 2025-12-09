@@ -73,3 +73,6 @@ Proyek ini menerapkan VAE dengan menambahkan arsitektur _Residual Blocks_ pada *
 3. Mendemonstrasikan citra wajah sintetis yang dihasilkan VAE dengan Residual Blocks serta mengevaluasi keragaman dan realismenya.
 
 ---
+
+|tabel 1|tabel2|
+|ssss|sss|
