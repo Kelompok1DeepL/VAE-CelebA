@@ -28,51 +28,60 @@ UNIVERSITAS PEMBANGUNAN NASIONAL "VETERAN" JAWA TIMUR
 <p align="justify">
 Dalam bidang kecerdasan buatan (Artificial Intelligence), deep learning merupakan metode yang populer untuk pemrosesan citra, khususnya dengan memanfaatkan kemampuan jaringan saraf tiruan untuk mengekstrak fitur dari data berdimensi tinggi. Hal ini memicu pengembangan model generatif yang bertujuan untuk mempelajari representasi data sehingga sistem mampu menghasilkan sampel baru yang relevan. Salah satu arsitektur generatif yang banyak digunakan adalah <strong>Autoencoder (AE)</strong>.
 
+<p align="justify">
 Autoencoder (AE) dapat mengubah data berukuran besar menjadi representasi yang lebih kecil tanpa kehilangan informasi penting. Metode ini banyak dimanfaatkan untuk:
 - ekstraksi fitur secara otomatis,
 - kompresi data visual,
 - deteksi anomali.
 
+<p align="justify">
 AE berfungsi untuk mengekstrak informasi data, yaitu variabel laten, serta membuang _noise_ yang tidak diperlukan. AE bekerja dengan mengkompresi data input menjadi representasi berdimensi rendah melalui *encoder*, kemudian merekonstruksi kembali data menggunakan *decoder*. Struktur utama AE terdiri dari:
 - **Encoder** → mengekstrak variabel laten,  
 - **Bottleneck** → ruang laten tempat informasi dipadatkan,  
 - **Decoder** → merekonstruksi kembali data ke bentuk semula.
 
+<p align="justify">
 AE memiliki kemampuan untuk mengompres data ke dalam ruang laten berdimensi rendah. Namun, representasi laten yang dihasilkan AE sering tidak terstruktur sehingga keterampilan model dalam menghasilkan sampel baru menjadi terbatas. Hal ini dapat diatasi dengan **Variational Autoencoder (VAE)**.
 
+<p align="justify">
 Susanto dan Pardede membandingkan penggunaan AE dan VAE untuk reduksi dimensi pada prediksi cacat mesin mobil. Hasil penelitian menunjukkan bahwa VAE menghasilkan kinerja yang lebih baik dibandingkan AE.
 
+<p align="justify">
 Arsitektur VAE diperkenalkan oleh Dienderik P. Kingma dan Max Welling melalui makalah Auto-Encoding Variational Bayes pada tahun 2013. Variational Autoencoder (VAE) merupakan model generatif probabilistik yang mengkodekan variabel laten sebagai distribusi probabilitas. VAE mengestimasi dua vektor, antara lain:
 - **rata-rata (μ)**  
 - **standar deviasi (σ)**  
 
+<p align="justify">
 Pendekatan ini memungkinkan terbentuknya ruang laten yang terstruktur, mulus, dan dapat diinterpolasi. Fungsi loss VAE terdiri dari:
 - **Reconstruction Loss**  
 - **Kullback-Leibler Divergence**
 
+<p align="justify">
 Nugroho dkk menggunakan VAE untuk mengekstraksi fitur pada sistem deteksi api. HAsilnya menunjukkan bahwa vektor laten mengalami perubahan menjadi lebih kecil dibandingkan dengan data awal tanpa kehilangan fitur penting. Disisi lain Giger dan Csillaghy menggunakan VAE untuk mendeteksi anomali pada _full-disk solar images_. 
 
+<p align="justify">
 Berbagai penelitian sebelumnya menunjukkan efektivitas VAE dalam deteksi anomali pada citra terstruktur seperti inspeksi industri, api, dan citra matahari. Namun, citra wajah jauh lebih kompleks karena variasi ekspresi, pose, pencahayaan, serta tekstur kulit sehingga representasi laten menjadi lebih kompleks. Dalam pemrosesan wajah, VAE memiliki kemampuan untuk mempelajari representasi laten yang terpisah sehingga fitur seperti warna rambut, ekspresi, bentuk wajah, dan tekstur dapat dimanipulasi secara independen.
 
+<p align="justify">
 Terkait dengan kinerja VAE yang digunakan untuk kompresi vektor laten yang diterapkan pada data citra wajah yang memiliki representasi laten yang kompleks. _Output_ yang dihasilkan dapat cenderung memiliki _noise_ atau mengalami blur. Permasalahan tersebut dapat diatasi dengan menggunakan **_Residual Blocks_** yang dapat membantu model mempertahankan informasi penting selama proses encoding dan decoding, selain itu **_Residual Block_** dapat mengurangi waktu _training data_ karena **_Residual Blocks_** bekerja dengan memberikan _shortcut connection_, yaitu jalur pintas yang memungkinkan sebagian informasi melewati layer tanpa harus diolah. Mekanisme ini membantu mengatasi masalah _vanishing gradient_ sehingga gradien dapat mengalir lebih lancar ke layer awal, membuat proses pembelajaran lebih stabil. Karena model lebih mudah belajar, ia dapat mencapai akurasi atau kualitas rekonstruksi yang baik dalam lebih sedikit langkah pembelajaran. Dengan demikian, VAE dapat menghasilkan rekonstruksi wajah yang lebih tajam dan mengurangi _noise_ atau blur karena hilangnya informasi sehingga dapat meningkatkan kualitas _output_.
 
-
+<p align="justify">
 Proyek ini menerapkan VAE dengan menambahkan arsitektur _Residual Blocks_ pada **CelebA Dataset**, sebuah dataset citra wajah populer dengan variasi atribut yang tinggi. Kompleksitas dataset ini menjadikannya uji coba ideal untuk mengevaluasi kemampuan VAE dengan Residual Blocks dalam rekonstruksi dan generasi citra wajah.
 
 ---
-
+<p align="justify">
 ## **Rumusan Masalah**
 1. Bagaimana mengimplementasikan Variational Autoencoder (VAE) dengan Residual Blocks dalam mempelajari representasi fitur wajah pada dataset CelebA?  
 2. Bagaimana kinerja Variational Autoencoder (VAE) dengan Residual Blocks dalam merekonstruksi citra wajah dari dataset CelebA?  
 3. Seberapa realistis dan beragam citra sintetis yang dapat dihasilkan oleh Variational Autoencoder (VAE) dengan Residual Blocks terhadap data CelebA?
 
 ---
-
+<p align="justify">
 ## **Tujuan Penelitian**
 1. Mengimplementasikan Variational Autoencoder (VAE) dengan Residual Blocks untuk dataset CelebA.  
 2. Menganalisis kinerja rekonstruksi model VAE dengan Residual Blocks pada data wajah CelebA.  
 3. Mendemonstrasikan citra wajah sintetis yang dihasilkan VAE dengan Residual Blocks serta mengevaluasi keragaman dan realismenya.
-</p>
+
 ---
 
 # **BAB II — TINJAUAN PUSTAKA**
