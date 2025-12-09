@@ -132,6 +132,12 @@ _Variational Autoencoder_ (VAE) merupakan pengembangan dari metode _autoencoder_
 <p align="justify">
 Untuk membentuk ruang laten yang terstruktur, VAE membuat _encoder_ menghasilkan parameter distribusi Gaussian, yaitu vektor _mean_ dan standar deviasi. Alih-alih menghasilkan satu titik representasi seperti pada _autoencoder_ biasa, VAE melakukan _sampling_ dari distribusi ini dengan menggunakan _reparameterization trick_ sehingga proses pelatihan tetap dapat dilakukan dengan algoritma berbasis gradien. Fungsi objektif VAE terdiri dari dua bagian, yaitu kesalahan rekonstruksi dan penalti regularisasi berupa nilai _Kullback–Leibler_ (KL) _divergence_. Secara matematis, fungsi loss VAE dinyatakan sebagai:
 
+$$
+\mathcal{L}_{VAE}(x_i; \theta, \phi) = 
+-\mathbb{E}_{q_\phi(z|x_i)} [\log p_\theta(x_i|z)]
++ D_{KL}(q_\phi(z|x_i) \;||\; p(z))
+$$
+
 <img width="523" height="47" alt="image" src="https://github.com/user-attachments/assets/8ed6a0fe-da32-4e71-b9fe-482309956c3f" />
 
 <img width="617" height="157" alt="image" src="https://github.com/user-attachments/assets/c07587b2-2d2a-4e2e-bf48-18e8ce07096d" />
@@ -218,8 +224,6 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 |     | Identitas artikel:                                |
 |     |IEEE Journal, Tahun 2024 | 
 |      |                                          ||
-
-
 
 
 <p align="justify">
