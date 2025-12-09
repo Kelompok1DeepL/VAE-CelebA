@@ -196,7 +196,8 @@ Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset
 
 # **BAB IV — HASIL & PEMBAHASAN**
 ## **4.1 Load Dataset**
-'''zip_path = "/content/img_align_celeba.zip"
+'''python
+zip_path = "/content/img_align_celeba.zip"
 extract_path = "/content/celeba"
 
 with zipfile.ZipFile(zip_path, 'r') as z:
