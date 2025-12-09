@@ -1,4 +1,5 @@
 
+
 # LAPORAN  
 ## PROYEK MATA KULIAH <i>deep learning</i>  
 ### “Implementasi VAE Berbasis Residual Block untuk Rekonstruksi Citra Wajah pada Dataset CelebA”
@@ -54,8 +55,8 @@ Susanto dan Pardede membandingkan penggunaan AE dan VAE untuk reduksi dimensi pa
 <p align="justify">
 Arsitektur VAE diperkenalkan oleh Dienderik P. Kingma dan Max Welling melalui makalah Auto-Encoding Variational Bayes pada tahun 2013. <i>Variational Autoencoder</i> (VAE) merupakan model generatif probabilistik yang mengkodekan variabel laten sebagai distribusi probabilitas. VAE mengestimasi dua vektor, antara lain:
     
-- **rata-rata (μ)**  
-- **standar deviasi (σ)**  
+- **Rata-rata (μ)**  
+- **Standar deviasi (σ)**  
 
 <p align="justify">
 Pendekatan ini memungkinkan terbentuknya ruang laten yang terstruktur, mulus, dan dapat diinterpolasi. Fungsi <i>loss</i> VAE terdiri dari:
@@ -132,24 +133,47 @@ _Variational Auto<i>encoder</i>_ (VAE) merupakan pengembangan dari metode _auto<
 <p align="justify">
 Untuk membentuk ruang laten yang terstruktur, VAE membuat _<i>encoder</i>_ menghasilkan parameter distribusi Gaussian, yaitu vektor _mean_ dan standar deviasi. Alih-alih menghasilkan satu titik representasi seperti pada _auto<i>encoder</i>_ biasa, VAE melakukan _sampling_ dari distribusi ini dengan menggunakan _reparameterization trick_ sehingga proses pelatihan tetap dapat dilakukan dengan algoritma berbasis gradien. Fungsi objektif VAE terdiri dari dua bagian, yaitu kesalahan rekonstruksi dan penalti regularisasi berupa nilai _Kullback–Leibler_ (KL) _divergence_. Secara matematis, fungsi loss VAE dinyatakan sebagai:
 
-<p align="justify">
-<img width="523" height="47" alt="image" src="https://github.com/user-attachments/assets/8ed6a0fe-da32-4e71-b9fe-482309956c3f" />
-<img width="617" height="157" alt="image" src="https://github.com/user-attachments/assets/c07587b2-2d2a-4e2e-bf48-18e8ce07096d" />
+<p align="center">
+    $$
+    \mathcal{L}_{VAE}(x_i; \theta, \phi)
+    = - \mathbb{E}_{q_\phi(z|x_i)}\left[ \log p_\theta(x_i|z) \right]
+    \;+\;
+    D_{KL}\left( q_\phi(z|x_i)\,\|\,p(z) \right)
+    $$
+
+<p align="justify">    
+Persamaan diatas terdiri dari dua bagian. Komponen pertama, yaitu nilai  
+<p align="justify">  
+    $$
+    -\,\mathbb{E}_{q_\phi(z \mid x_i)}\!\left[\log\, p_\theta(x_i \mid z)\right]
+    $$
+<p align="justify">  
+    mengukur seberapa baik decoder mampu merekonstruksi data input. Komponen kedua, yaitu  
+<p align="center">  
+        $D_{KL}\big(q_\phi(z \mid x_i)\,\|\,p(z)\big)$ 
+<p align="justify">  
+merupakan Kullback–Leibler (KL) divergence yang memastikan distribusi laten hasil encoder tetap berada dekat dengan distribusi prior, biasanya distribusi normal standar. Agar proses sampling tetap dapat diturunkan secara diferensial, representasi laten dihitung menggunakan formulasi:
+<p align="center">
+    $$
+    z_{i,k} = g_\phi(i,k, x_i) + \mathcal{N}(0,1)
+    $$
+
+
 
 <p align="justify">
-<img width="284" height="44" alt="image" src="https://github.com/user-attachments/assets/d9ea1945-9aef-4209-b70c-c50b731eda56" />
-
-<p align="justify">
-Persamaan (2) menunjukkan bahwa nilai z tidak diambil langsung dari distribusi Gaussian, melainkan diperoleh melalui fungsi transformasi g∅ yang memanfaatkan _<i>noise (AE)</i>_ . Dengan cara ini, proses _sampling_ tetap dapat dimasukkan ke dalam alur _backpropagation_. Dengan kombinasi mekanisme rekonstruksi, regularisasi KL, dan _reparameterization trick_, VAE mampu menciptakan ruang laten yang lebih konsisten dan memungkinkan pembangkitan data baru dengan pola yang serupa dengan data asli (Dao et al., 2022).
+Persamaan diatas menunjukkan bahwa nilai z tidak diambil langsung dari distribusi Gaussian, melainkan diperoleh melalui fungsi transformasi g∅ yang memanfaatkan _<i>noise (AE)</i>_ . Dengan cara ini, proses _sampling_ tetap dapat dimasukkan ke dalam alur _backpropagation_. Dengan kombinasi mekanisme rekonstruksi, regularisasi KL, dan _reparameterization trick_, VAE mampu menciptakan ruang laten yang lebih konsisten dan memungkinkan pembangkitan data baru dengan pola yang serupa dengan data asli (Dao et al., 2022).
 
 ### **2.1.6 _Kullback-Leibler_ (KL) _Divergence_**
 <p align="justify">
 _Kullback-Leibler_ (KL) _Divergence_ merupakan ukuran yang digunakan untuk melihat sejauh mana suatu distribusi probabilitas berbeda dari distribusi acuan. Nilai KL digunakan untuk menilai seberapa besar informasi baru yang terkandung dalam suatu distribusi dibandingkan dengan referensinya. Semakin besar nilai _divergence_, semakin besar pula perbedaan kedua distribusi tersebut. Sebaliknya, nilai yang kecil menunjukkan bahwa distribusi tersebut memiliki kemiripan yang tinggi. Rumus _KL Divergence_ secara umum dapat ditulis sebagai (_KL Divergence_):
 
-<img width="324" height="49" alt="image" src="https://github.com/user-attachments/assets/51117973-db28-4e83-8fae-b903b0a2c029" />
+<p align="center">
+$D_{KL}(P\|Q)=\sum_{x\in X} P(x)\,\log\frac{P(x)}{Q(x)}$
+
+
 
 <p align="justify">
-Persamaan (3) dilakukan untuk menghitung selisih logaritmatik antara dua distribusi probabilitas dan menjadi dasar bagi berbagai metode analisis berbasis distribusi. Dalam implementasinya, distribusi biasanya dinormalisasi terlebih dahulu dan nilai yang sangat kecil diberi batas minimum untuk menghindari masalah perhitungan seperti algoritma nol. Teknik ini memastikan proses komputasi tetap stabil dan akurat.
+Persamaan diatas dilakukan untuk menghitung selisih logaritmatik antara dua distribusi probabilitas dan menjadi dasar bagi berbagai metode analisis berbasis distribusi. Dalam implementasinya, distribusi biasanya dinormalisasi terlebih dahulu dan nilai yang sangat kecil diberi batas minimum untuk menghindari masalah perhitungan seperti algoritma nol. Teknik ini memastikan proses komputasi tetap stabil dan akurat.
 
 ### **2.1.7 _Latent Space Representation_**
 <p align="justify">
@@ -169,21 +193,50 @@ Selain memberikan jalur informasi tambahan melalui koneksi residual, blok ini ju
 <p align="justify">
 Pada _Variational Auto<i>encoder</i>_ (VAE), proses pelatihan dilakukan dengan memaksimalkan _Evidence Lower Bound_ (ELBO), yang menjadi batas bawah dari _log-likelihood_ data. Pendekatan ini digunakan karena posterior sebenarnya p∅(z|x) tidak dapat dihitung secara langsung, sehingga diperlukan distribusi pendekatan q∅(z|x) untuk membangun fungsi objektif yang dapat dioptimalkan.
 Dalam kerangka _variational inference_, _log-likelihood_ dapat dituliskan ulang sebagaimana ditunjukkan pada Persamaan (4):
+    
+<p align="center">
+    $$
+    \log p_\phi(x)
+    =
+    \mathbb{E}_{q_\theta(z \mid x)}
+    \Big[
+        \log \frac{p_\phi(x,z)}{q_\theta(z \mid x)}
+    \Big]
+    +
+    D_{KL}(q_\theta(z \mid x) \,\|\, p_\phi(z \mid x))
+    $$
 
-<img width="469" height="43" alt="image" src="https://github.com/user-attachments/assets/d8a3dfa0-5c14-4d24-99e3-33fb4479f38e" />
 
 <p align="justify">
-Persamaan (4) memperlihatkan bahwa _log-likelihood_ tersusun dari dua bagian, yaitu nilai ekspektasi terhadap rasio antara model generatif dan distribusi pendekatan, serta _Kullback–Leibler divergence_ antara posterior pendekatan dan posterior sebenarnya. Karena _KL divergence_ selalu bernilai non-negatif, bagian ekspektasi tersebut menjadi batas bawah dari _log-likelihood_ dan disebut sebagai ELBO. Komponen regularisasi dalam ELBO dijelaskan melalui KL divergence antara distribusi pendekatan dan prior, sebagaimana dituliskan pada Persamaan (5):
+Persamaan diatas memperlihatkan bahwa _log-likelihood_ tersusun dari dua bagian, yaitu nilai ekspektasi terhadap rasio antara model generatif dan distribusi pendekatan, serta _Kullback–Leibler divergence_ antara posterior pendekatan dan posterior sebenarnya. Karena _KL divergence_ selalu bernilai non-negatif, bagian ekspektasi tersebut menjadi batas bawah dari _log-likelihood_ dan disebut sebagai ELBO. Komponen regularisasi dalam ELBO dijelaskan melalui KL divergence antara distribusi pendekatan dan prior, sebagaimana dituliskan pada Persamaan dibawah ini:
 
-<img width="429" height="31" alt="image" src="https://github.com/user-attachments/assets/cec8734c-e257-4114-91cb-09da99df6e93" />
+<p align="center">
+    $$
+    D_{KL}\big(q_\theta(z \mid x)\,\|\,p(z)\big)
+    =
+    \int q_\theta(z \mid x)
+    \log \frac{q_\theta(z \mid x)}{p(z)}
+    \, dz
+    $$
+
 
 <p align="justify">
-Persamaan (5) ini menggambarkan seberapa jauh distribusi laten hasil _<i>encoder</i>_ menyimpang dari prior. Semakin besar nilainya, semakin besar penalti yang diberikan model untuk menjaga agar ruang laten tetap terstruktur dan tidak menjadi acak. Dengan menggabungkan komponen rekonstruksi dan regularisasi tersebut, batas bawah yang menjadi tujuan optimasi VAE dituliskan pada Persamaan (6):
+Persamaan diatas menggambarkan seberapa jauh distribusi laten hasil _<i>encoder</i>_ menyimpang dari prior. Semakin besar nilainya, semakin besar penalti yang diberikan model untuk menjaga agar ruang laten tetap terstruktur dan tidak menjadi acak. Dengan menggabungkan komponen rekonstruksi dan regularisasi tersebut, batas bawah yang menjadi tujuan optimasi VAE dituliskan pada Persamaan dibawah ini:
+
+<p align="center">
+    $$
+    \mathcal{L}_{ELBO}
+    =
+    \mathbb{E}_{q_\theta(z \mid x)} \big[\log p_\phi(x \mid z)\big]
+    -
+    D_{KL}\!\left(q_\theta(z \mid x)\,\|\,p(z)\right)
+    $$
+
 
 <img width="466" height="35" alt="image" src="https://github.com/user-attachments/assets/7e26055f-3f5b-4b0c-ad47-f7e1fca6899a" />
 
 <p align="justify">
-Persamaan (6) merangkum dua tujuan penting dalam pelatihan VAE. Bagian pertama (_reconstruction term_) mengukur seberapa baik model dapat membangun kembali input. Bagian kedua (_KL term_) memastikan distribusi laten tetap mendekati prior. Kombinasi keduanya menghasilkan rekonstruksi yang baik sekaligus ruang laten yang stabil dan teratur, yang penting untuk berbagai aplikasi generatif dan analisis representasi.
+Persamaan diatas merangkum dua tujuan penting dalam pelatihan VAE. Bagian pertama (_reconstruction term_) mengukur seberapa baik model dapat membangun kembali input. Bagian kedua (_KL term_) memastikan distribusi laten tetap mendekati prior. Kombinasi keduanya menghasilkan rekonstruksi yang baik sekaligus ruang laten yang stabil dan teratur, yang penting untuk berbagai aplikasi generatif dan analisis representasi.
 
 ## **2.2 Penelitian Teradahulu**
 <p align="justify">
