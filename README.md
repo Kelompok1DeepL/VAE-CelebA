@@ -192,16 +192,29 @@ Tahap ini merupakan akhir dari seluruh rangkaian penelitian. Semua hasil telah d
 
 
 ## **3.2 Dataset**
-Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset (CelebA), yaitu kumpulan citra wajah manusia yang sangat populer untuk tugas‑tugas computer vision dan model generatif. Dataset ini berisi 200 gambar wajah dengan resolusi asli 178 × 218 piksel, menampilkan beragam ekspresi, posisi kepala, kondisi pencahayaan, serta variasi karakteristik wajah lainnya. Pada proses pra‑pengolahan di notebook, seluruh gambar diubah ukurannya menjadi 128 × 128 piksel agar sesuai dengan arsitektur model VAE yang digunakan. Dataset CelebA dipilih karena ukurannya yang besar dan keragamannya yang tinggi, sehingga cocok untuk tugas seperti rekonstruksi wajah, pembelajaran distribusi laten wajah, generasi citra baru, dan interpolasi di ruang laten. Transformasi pada data dilakukan menggunakan modul torchvision.transforms, yang meliputi Resize untuk menyesuaikan resolusi gambar, ToTensor untuk mengubah gambar dari format PIL/NumPy menjadi tensor PyTorch berukuran (C, H, W) dengan skala piksel 0–1, serta Normalize dengan mean dan standar deviasi 0.5 agar nilai piksel berada pada rentang –1 hingga 1. Normalisasi ini membantu stabilitas proses pelatihan dan mempercepat konvergensi model VAE.
+Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset (CelebA) dari kaggle (https://www.kaggle.com/datasets/jessicali9530/celeba-dataset), yaitu kumpulan citra wajah manusia yang sangat populer untuk tugas‑tugas computer vision dan model generatif. Dataset ini berisi 200 gambar wajah dengan resolusi asli 178 × 218 piksel, menampilkan beragam ekspresi, posisi kepala, kondisi pencahayaan, serta variasi karakteristik wajah lainnya. Pada proses pra‑pengolahan di notebook, seluruh gambar diubah ukurannya menjadi 128 × 128 piksel agar sesuai dengan arsitektur model VAE yang digunakan. Dataset CelebA dipilih karena ukurannya yang besar dan keragamannya yang tinggi, sehingga cocok untuk tugas seperti rekonstruksi wajah, pembelajaran distribusi laten wajah, generasi citra baru, dan interpolasi di ruang laten. Transformasi pada data dilakukan menggunakan modul torchvision.transforms, yang meliputi Resize untuk menyesuaikan resolusi gambar, ToTensor untuk mengubah gambar dari format PIL/NumPy menjadi tensor PyTorch berukuran (C, H, W) dengan skala piksel 0–1, serta Normalize dengan mean dan standar deviasi 0.5 agar nilai piksel berada pada rentang –1 hingga 1. Normalisasi ini membantu stabilitas proses pelatihan dan mempercepat konvergensi model VAE.
 
 # **BAB IV — HASIL & PEMBAHASAN**
 ## **4.1 Load Dataset**
+zip_path = "/content/img_align_celeba.zip"
+extract_path = "/content/celeba"
+
+with zipfile.ZipFile(zip_path, 'r') as z:
+    z.extractall(extract_path)
+
+print("Done!")
+
+Pada tahap ini, dataset CelebA (CelebFaces Attributes Dataset) dimuat menggunakan ImageFolder. Dataset ini berisi 202.599 gambar wajah manusia dengan berbagai variasi ekspresi, pencahayaan, dan sudut pandang. Setiap gambar melalui proses preprocessing berupa:
+- Resize (128×128 piksel) agar sesuai dengan arsitektur VAE.
+- ToTensor() untuk mengubah gambar dari format PIL menjadi tensor PyTorch.
+- Normalize(mean=0.5, std=0.5) agar nilai piksel berada pada rentang −1,1 sehingga training lebih stabil.
+Dataset kemudian dimasukkan ke DataLoader dengan batch size tertentu (misalnya 64), sehingga gambar dapat diproses secara batch selama training. Tahap ini memastikan model menerima input bersih, seragam, dan siap digunakan.
 
 ## **4.2 Build Model (Encoder + Decoder)**
 
-## **4.3 Loss Function**
+## **4.3 Training Loop**
 
-## **4.4 Training Loop**
+## **4.4 Training Loss**
 
 ## **4.5 Hasil Training: Rekonstruksi**
 
