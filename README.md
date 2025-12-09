@@ -213,12 +213,19 @@ Dataset kemudian dimasukkan ke DataLoader dengan batch size tertentu (misalnya 6
 ## **4.2 Build Model (Encoder + Decoder)**
 
 ## **4.3 Training Loop**
+Pada tahap training, proses dimulai dengan forward pass, yaitu gambar input dimasukkan ke dalam encoder untuk menghasilkan dua parameter, yaitu mu dan logvar, yang merepresentasikan distribusi laten. Dari parameter ini, model melakukan proses reparameterization untuk menghasilkan nilai laten z, yang kemudian diteruskan ke decoder untuk menghasilkan citra rekonstruksi. Setelah rekonstruksi dihasilkan, model menghitung nilai loss yang terdiri dari dua komponen: Reconstruction Loss (MSE) yang mengukur seberapa mirip citra hasil rekonstruksi dengan citra asli, serta KL Divergence yang memastikan bahwa distribusi laten mendekati distribusi Gaussian standar. Selanjutnya dilakukan backward pass, yaitu proses propagasi balik menggunakan optimizer.zero_grad(), loss.backward(), dan optimizer.step() untuk memperbarui bobot model berdasarkan error yang diperoleh. Pada setiap epoch, model juga menyimpan checkpoint agar hasil pelatihan dapat dipantau dan dilanjutkan, serta menghasilkan sampel wajah baru dari ruang laten. Seluruh proses ini diulang selama beberapa epoch, dan pada tiap epoch dicatat nilai loss rata-rata untuk melihat perkembangan performa model selama pelatihan.
 
-## **4.4 Training Loss**
+## **4.4 Train Loss**
+<img width="695" height="470" alt="image" src="https://github.com/user-attachments/assets/fd42ad8f-bb74-42be-8a57-60430433c9b3" />
+
 
 ## **4.5 Hasil Training: Rekonstruksi**
+<img width="1244" height="350" alt="image" src="https://github.com/user-attachments/assets/1e7cf9c3-3016-4b1e-9e0f-5cce71ae544e" />
+
 
 ## **4.6 Hasil: Latent Interpolation**
+<img width="1570" height="199" alt="image" src="https://github.com/user-attachments/assets/4d75dab7-425b-4eba-aa96-77ca8bac5f1c" />
+
 
 
 # **DAFTAR PUSTAKA**
