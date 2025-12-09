@@ -1,11 +1,9 @@
-<p align="center">
-    
+
 # LAPORAN  
 ## PROYEK MATA KULIAH DEEP LEARNING  
 ### “Implementasi VAE Berbasis Residual Block untuk Rekonstruksi Citra Wajah pada Dataset CelebA”
 
 ---
-<p align="center">
     
 ## **Disusun oleh Kelompok 1**
 - Tsabita Rosyidah Putri — (22083010012)  
@@ -14,13 +12,11 @@
 - Niken Sulistyowati — (22083010091)  
 - Farah Yusnaida Arif — (22083010106)
 
-<p align="center">
     
 ### **Dosen Pengampu**
 Amri Muhaimin, S.Stat., M.Stat., MS  
 NIP. 199507232024061002
 
-<p align="center">
     
 ### **Program Studi Sains Data**  
 **FAKULTAS ILMU KOMPUTER**  
