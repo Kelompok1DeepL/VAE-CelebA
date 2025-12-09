@@ -196,17 +196,15 @@ Dataset yang digunakan dalam penelitian ini adalah CelebFaces Attributes Dataset
 
 # **BAB IV — HASIL & PEMBAHASAN**
 ## **4.1 Load Dataset**
-'''python
-zip_path = "/content/img_align_celeba.zip"
+''' zip_path = "/content/img_align_celeba.zip"
 extract_path = "/content/celeba"
 
 with zipfile.ZipFile(zip_path, 'r') as z:
     z.extractall(extract_path)
 
-print("Done!")
-'''
+print("Done!") '''
 
-Pada tahap ini, dataset CelebA (CelebFaces Attributes Dataset) dimuat menggunakan ImageFolder. Dataset ini berisi 202.599 gambar wajah manusia dengan berbagai variasi ekspresi, pencahayaan, dan sudut pandang. Setiap gambar melalui proses preprocessing berupa:
+Pada tahap ini, dataset CelebA (CelebFaces Attributes Dataset) dimuat menggunakan ImageFolder. Dataset ini berisi 200 gambar wajah manusia dengan berbagai variasi ekspresi, pencahayaan, dan sudut pandang. Setiap gambar melalui proses preprocessing berupa:
 - Resize (128×128 piksel) agar sesuai dengan arsitektur VAE.
 - ToTensor() untuk mengubah gambar dari format PIL menjadi tensor PyTorch.
 - Normalize(mean=0.5, std=0.5) agar nilai piksel berada pada rentang −1,1 sehingga training lebih stabil.
