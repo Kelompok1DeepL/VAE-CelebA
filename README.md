@@ -193,8 +193,8 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 |1   | Judul:                                            |Metode:|
 |     |   Auto-Encoding Variational Bayes                | Penelitian ini memperkenalkan pendekatan Auto-Encoding Variational Bayes (AEVB) untuk pelatihan model generatif berbasis variabel laten kontinu. Metode yang digunakan mencakup stochastic variational inference, reparameterization trick untuk mengoptimalkan variational lower bound, serta proses pelatihan menggunakan minibatch dengan stochastic gradient ascent. Model diuji pada beberapa dataset seperti MNIST dan Frey Face.|
 |      | Penulis:                                         |Temuan:|
-|      | 1. Diederik P. Kingma                            |Hasil penelitian menunjukkan bahwa estimator baru bernama Stochastic Gradient Variational Bayes (SGVB) mampu melakukan inferensi secara efisien pada model laten kontinu. Algoritma AEVB yang diajukan terbukti cepat konvergen dan memberikan performa lebih baik dibandingkan pendekatan sebelumnya. Selain itu, metode ini menghasilkan efek regularisasi alami yang membantu mencegah overfitting selama pelatihan model.|
-|     |  2. Max Welling                                    |
+|      | 1. Diederik P. Kingma
+ 2. Max Welling    |Hasil penelitian menunjukkan bahwa estimator baru bernama Stochastic Gradient Variational Bayes (SGVB) mampu melakukan inferensi secara efisien pada model laten kontinu. Algoritma AEVB yang diajukan terbukti cepat konvergen dan memberikan performa lebih baik dibandingkan pendekatan sebelumnya. Selain itu, metode ini menghasilkan efek regularisasi alami yang membantu mencegah overfitting selama pelatihan model.|
 |     | Identitas artikel:                                |
 |     |International Conference on Learning, Tahun 2022. | 
 |      |                                          ||
@@ -205,7 +205,7 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 2. Hendri Santoso |Hasil penelitian menunjukkan bahwa kombinasi VAE dan ELA mampu membedakan citra asli dan hasil manipulasi. Meskipun demikian, masih ditemukan kesalahan klasifikasi, terutama ketika citra manipulasi terdeteksi sebagai citra asli. Secara keseluruhan, metode ini dinilai cukup efektif, tetapi memerlukan peningkatan untuk mencapai akurasi yang lebih stabil.|
 |     | Identitas artikel:                                |
 |     |Sibatik Journal, Volume 2, Nomor 9, Tahun 2023| 
-
+|      |                                          ||
 
 
 
