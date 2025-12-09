@@ -204,13 +204,16 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 |     | Identitas artikel:                                |
 |     |Sibatik Journal, Volume 2, Nomor 9, Tahun 2023. | 
 |      |                                          ||
+|3   | Judul:                                            |Metode:|
+|     |   FULLY CONVOLUTIONAL VARIATIONAL AUTOENCODER FOR FEATURE EXTRACTION OF FIRE DETECTION SYSTEM | Penelitian ini menerapkan fully convolutional variational autoencoder (VAE) untuk melakukan ekstraksi fitur pada citra kebakaran. Arsitekturnya terdiri dari encoder, bottleneck, dan decoder yang seluruhnya dibangun menggunakan jaringan konvolusional secara berurutan. Model dilatih menggunakan dataset citra api dalam jumlah besar agar mampu mempelajari pola visual penting yang berkaitan dengan objek kebakaran.|
+|      | Penulis:                                         |Temuan:|
+|      | Herminarto Nugroho, Meredita Susanty, Ade Irawan, Muhammad Komiyatu, dan Ariana Yunita. |Model VAE yang dikembangkan mampu mengekstraksi informasi penting dari citra api secara efektif. Representasi fitur yang dihasilkan dapat direkonstruksi kembali sehingga membedakan citra yang mengandung api dan yang tidak. Selain itu, metode ini berhasil menurunkan dimensi data tanpa menghilangkan karakteristik utama, sehingga dinilai sesuai untuk mendukung sistem deteksi kebakaran berbasis citra.|
+|     | Identitas artikel:                                |
+|     |Jurnal Ilmu Komputer dan Informasi, Volume 13, Nomor 1, Tahun 2020. | 
+|      |                                          ||
 
 
 
-
-<img width="456" height="626" alt="image" src="https://github.com/user-attachments/assets/ff40379c-5853-470f-b26d-3522bd48e25e" />
-
-<img width="457" height="587" alt="image" src="https://github.com/user-attachments/assets/3b0cba6e-da9e-45d8-ac0f-97130067afec" />
 
 <p align="justify">
 Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpulkan bahwa penggunaan _Variational Autoencoder_ (VAE) telah diterapkan dalam berbagai konteks, seperti deteksi manipulasi wajah, ekstraksi fitur citra kebakaran, dan prediksi cacat pada mesin. Meskipun demikian, sebagian besar penelitian tersebut lebih menekankan fungsi VAE sebagai alat klasifikasi atau pendukung sistem deteksi, bukan sebagai model generatif yang berfokus pada proses rekonstruksi citra. Selain itu, dataset yang digunakan pada studi terdahulu juga bervariasi dan sebagian besar tidak melibatkan dataset wajah berskala besar seperti CelebA. Di sisi lain, penelitian yang bersifat fundamental seperti studi Kingma dan Welling (2013) memang menjadi dasar konsep VAE, tetapi belum secara khusus mengevaluasi performanya dalam menghasilkan rekonstruksi citra wajah beranotasi kompleks. Dengan demikian, masih terdapat ruang penelitian untuk mengevaluasi kemampuan VAE sebagai model generatif dalam melakukan rekonstruksi citra wajah pada dataset CelebA, sekaligus menguji sejauh mana kualitas hasil rekonstruksi tersebut dapat merepresentasikan karakteristik visual asli. Penelitian ini hadir untuk mengisi celah tersebut melalui implementasi VAE yang difokuskan pada proses rekonstruksi citra wajah sebagai bentuk pendekatan generatif dalam domain _deep learning_.
