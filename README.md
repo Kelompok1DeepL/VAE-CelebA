@@ -16,8 +16,8 @@ Amri Muhaimin, S.Stat., M.Stat., MS
 NIP. 199507232024061002
 
 ### **Program Studi Sains Data**  
-**Fakultas Ilmu Komputer**  
-Universitas Pembangunan Nasional “Veteran” Jawa Timur  
+**FAKULTAS ILMU KOMPUTER**  
+UNIVERSITAS PEMBANGUNAN NASIONAL "VETERAN" JAWA TIMUR
 2025
 
 ---
@@ -154,7 +154,6 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpulkan bahwa penggunaan _Variational Autoencoder_ (VAE) telah diterapkan dalam berbagai konteks, seperti deteksi manipulasi wajah, ekstraksi fitur citra kebakaran, dan prediksi cacat pada mesin. Meskipun demikian, sebagian besar penelitian tersebut lebih menekankan fungsi VAE sebagai alat klasifikasi atau pendukung sistem deteksi, bukan sebagai model generatif yang berfokus pada proses rekonstruksi citra. Selain itu, dataset yang digunakan pada studi terdahulu juga bervariasi dan sebagian besar tidak melibatkan dataset wajah berskala besar seperti CelebA. Di sisi lain, penelitian yang bersifat fundamental seperti studi Kingma dan Welling (2013) memang menjadi dasar konsep VAE, tetapi belum secara khusus mengevaluasi performanya dalam menghasilkan rekonstruksi citra wajah beranotasi kompleks. Dengan demikian, masih terdapat ruang penelitian untuk mengevaluasi kemampuan VAE sebagai model generatif dalam melakukan rekonstruksi citra wajah pada dataset CelebA, sekaligus menguji sejauh mana kualitas hasil rekonstruksi tersebut dapat merepresentasikan karakteristik visual asli. Penelitian ini hadir untuk mengisi celah tersebut melalui implementasi VAE yang difokuskan pada proses rekonstruksi citra wajah sebagai bentuk pendekatan generatif dalam domain _deep learning_.
 
 
-
 # **BAB III — METODOLOGI**
 ## **3.1 Tahapan Kerja**
 <img width="482" height="1091" alt="deeplearning" src="https://github.com/user-attachments/assets/5ebfe791-d4bb-478c-a3d8-8bf466b4d1f6" />
@@ -211,9 +210,168 @@ Pada tahap ini, dataset CelebA (CelebFaces Attributes Dataset) dimuat menggunaka
 Dataset kemudian dimasukkan ke DataLoader dengan batch size tertentu (misalnya 64), sehingga gambar dapat diproses secara batch selama training. Tahap ini memastikan model menerima input bersih, seragam, dan siap digunakan.
 
 ## **4.2 Build Model (Encoder + Decoder)**
+''' 
+class ResidualBlock(nn.Module):
+    def __init__(self, channels):
+        super().__init__()
+        self.block = nn.Sequential(
+            nn.Conv2d(channels, channels, kernel_size=3, padding=1),
+            nn.ReLU(True),
+            nn.Conv2d(channels, channels, kernel_size=3, padding=1)
+        )
+
+    def forward(self, x):
+        return F.relu(x + self.block(x))
+
+class Encoder(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+        self.down = nn.Sequential(
+            nn.Conv2d(3, 32, 4, 2, 1),   # 128 → 64
+            nn.ReLU(True),
+            ResidualBlock(32),
+
+            nn.Conv2d(32, 64, 4, 2, 1), # 64 → 32
+            nn.ReLU(True),
+            ResidualBlock(64),
+
+            nn.Conv2d(64, 128, 4, 2, 1), # 32 → 16
+            nn.ReLU(True),
+            ResidualBlock(128),
+
+            nn.Conv2d(128, 256, 4, 2, 1), # 16 → 8
+            nn.ReLU(True),
+            ResidualBlock(256),
+
+            nn.Conv2d(256, 512, 4, 2, 1), # 8 → 4
+            nn.ReLU(True),
+            ResidualBlock(512),
+        )
+
+        # Detect flatten size
+        with torch.no_grad():
+            dummy = torch.zeros(1, 3, 128, 128)
+            out = self.down(dummy)
+            self.flatten_dim = out.numel()
+
+        self.fc_mu = nn.Linear(self.flatten_dim, LATENT_DIM)
+        self.fc_logvar = nn.Linear(self.flatten_dim, LATENT_DIM)
+
+    def forward(self, x):
+        x = self.down(x)
+        x = x.view(x.size(0), -1)
+        mu = self.fc_mu(x)
+        logvar = self.fc_logvar(x)
+        return mu, logvar
+
+class Decoder(nn.Module):
+    def __init__(self, flatten_dim):
+        super().__init__()
+
+        self.init_spatial = 4
+        self.init_channels = flatten_dim // (self.init_spatial * self.init_spatial)
+
+        self.fc = nn.Linear(LATENT_DIM, self.init_channels * 4 * 4)
+
+        self.up = nn.Sequential(
+            nn.ConvTranspose2d(self.init_channels, 256, 4, 2, 1),
+            nn.ReLU(True),
+            ResidualBlock(256),
+
+            nn.ConvTranspose2d(256, 128, 4, 2, 1),
+            nn.ReLU(True),
+            ResidualBlock(128),
+
+            nn.ConvTranspose2d(128, 64, 4, 2, 1),
+            nn.ReLU(True),
+            ResidualBlock(64),
+
+            nn.ConvTranspose2d(64, 32, 4, 2, 1),
+            nn.ReLU(True),
+            ResidualBlock(32),
+
+            nn.ConvTranspose2d(32, 3, 4, 2, 1),
+            nn.Sigmoid()
+        )
+
+    def forward(self, z):
+        x = self.fc(z)
+        x = x.view(-1, self.init_channels, 4, 4)
+        return self.up(x)
+
+class VAE(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.encoder = Encoder()
+        self.decoder = Decoder(self.encoder.flatten_dim)
+
+    def reparameterize(self, mu, logvar):
+        std = torch.exp(0.5 * logvar)
+        eps = torch.randn_like(std)
+        return mu + eps * std
+
+    def forward(self, x):
+        mu, logvar = self.encoder(x)
+        z = self.reparameterize(mu, logvar)
+        recon = self.decoder(z)
+        return recon, mu, logvar '''
+        
 
 ## **4.3 Training Loop**
+''' 
+loss_history = []
+vae.train()
+for epoch in range(1, EPOCHS + 1):
+    total_loss = 0.0
+
+    for batch_idx, (images, _) in enumerate(loader):
+        images = images.to(DEVICE)
+
+        recon, mu, logvar = vae(images)
+        loss = vae_loss(recon, images, mu, logvar)
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        total_loss += loss.item() * images.size(0)
+
+        if batch_idx % 200 == 0:
+            print(f"Epoch {epoch} | Batch {batch_idx}/{len(loader)} | Batch loss: {loss.item():.4f}")
+
+    avg_loss = total_loss / len(dataset)
+    print(f"=== Epoch {epoch}/{EPOCHS} finished. Avg loss per image: {avg_loss:.4f} ===")
+
+    # SIMPAN LOSS
+    loss_history.append(avg_loss)
+
+    # Save checkpoint
+    torch.save({
+        'epoch': epoch,
+        'model_state_dict': vae.state_dict(),
+        'optimizer_state_dict': optimizer.state_dict(),
+        'avg_loss': avg_loss
+    }, CHECKPOINT_PATH)
+
+    print(f"Checkpoint saved to {CHECKPOINT_PATH}")
+
+    # Generate samples
+    vae.eval()
+    with torch.no_grad():
+        z = torch.randn(16, LATENT_DIM).to(DEVICE)
+        samples = vae.decoder(z)
+        sample_path = os.path.join(SAMPLES_DIR, f"samples_epoch_{epoch}.png")
+        save_reconstructed_grid(samples.cpu(), sample_path, nrow=4)
+
+    vae.train() '''
+
+    
 Pada tahap training, proses dimulai dengan forward pass, yaitu gambar input dimasukkan ke dalam encoder untuk menghasilkan dua parameter, yaitu mu dan logvar, yang merepresentasikan distribusi laten. Dari parameter ini, model melakukan proses reparameterization untuk menghasilkan nilai laten z, yang kemudian diteruskan ke decoder untuk menghasilkan citra rekonstruksi. Setelah rekonstruksi dihasilkan, model menghitung nilai loss yang terdiri dari dua komponen: Reconstruction Loss (MSE) yang mengukur seberapa mirip citra hasil rekonstruksi dengan citra asli, serta KL Divergence yang memastikan bahwa distribusi laten mendekati distribusi Gaussian standar. Selanjutnya dilakukan backward pass, yaitu proses propagasi balik menggunakan optimizer.zero_grad(), loss.backward(), dan optimizer.step() untuk memperbarui bobot model berdasarkan error yang diperoleh. Pada setiap epoch, model juga menyimpan checkpoint agar hasil pelatihan dapat dipantau dan dilanjutkan, serta menghasilkan sampel wajah baru dari ruang laten. Seluruh proses ini diulang selama beberapa epoch, dan pada tiap epoch dicatat nilai loss rata-rata untuk melihat perkembangan performa model selama pelatihan.
+
+<img width="502" height="285" alt="image" src="https://github.com/user-attachments/assets/92e6fa63-3265-4e55-94a1-f12460df2740" />
+
+Selama proses training selama 100 epoch, nilai loss model VAE menunjukkan penurunan yang konsisten dari sekitar 288 pada epoch awal hingga mencapai sekitar 221 pada epoch terakhir. Pola penurunan ini terlihat stabil meskipun terdapat sedikit fluktuasi antar‑batch, yang merupakan hal wajar pada training model generatif. Penurunan loss ini mencerminkan bahwa model semakin baik dalam melakukan dua hal utama: merekonstruksi gambar input dan membentuk distribusi latent yang sesuai dengan prior Gaussian. Setiap epoch menghasilkan checkpoint dan sampel gambar baru, yang memperlihatkan bahwa kualitas rekonstruksi dan gambar hasil generasi semakin meningkat seiring menurunnya loss. Secara keseluruhan, hasil training loop menunjukkan bahwa VAE berhasil belajar dan mengalami konvergensi yang baik.
 
 ## **4.4 Train Loss**
 <img width="695" height="470" alt="image" src="https://github.com/user-attachments/assets/fd42ad8f-bb74-42be-8a57-60430433c9b3" />
