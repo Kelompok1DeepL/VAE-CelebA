@@ -318,6 +318,7 @@ Dataset kemudian dimasukkan ke DataLoader dengan batch size tertentu (misalnya 6
         recon = self.decoder(z)
         return recon, mu, logvar
         
+Pada tahap Build Model, arsitektur VAE disusun dalam bentuk dua komponen utama—Encoder dan Decoder—yang bekerja sama untuk mempelajari representasi laten dari gambar wajah. Encoder mengambil gambar berukuran 128×128×3 dan melakukan proses ekstraksi fitur melalui beberapa lapisan Convolutional dan ReLU yang disertai ResidualBlock agar pembelajaran fitur lebih stabil. Proses ini sekaligus melakukan downsampling bertahap hingga menghasilkan feature map berukuran 4×4 dengan channel besar, kemudian di-flatten untuk menentukan ukuran vektor yang akan dihubungkan ke dua fully connected layer. Dua layer ini membentuk output berupa μ (mean) dan logσ² (log-variance), yang merupakan representasi statistik dari distribusi laten. Selanjutnya, VAE menggunakan reparameterization trick untuk mengubah kedua nilai tersebut menjadi vektor laten z yang dapat di-backpropagate. Pada sisi lain, Decoder mengambil vektor laten z dan mengubahnya kembali menjadi gambar melalui fully connected layer yang membentuk kembali tensor 4×4×channel, kemudian memprosesnya melalui beberapa lapisan ConvTranspose2D dengan ResidualBlock untuk melakukan upsampling hingga ukuran kembali menjadi 128×128×3. Proses ini memungkinkan model melakuk
 
 ## **4.3 Training Loop**
 
