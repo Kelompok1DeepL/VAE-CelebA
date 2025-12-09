@@ -122,6 +122,11 @@ Data dengan dimensi tinggi umumnya dapat diproyeksikan ke ruang yang lebih ringk
 
 Untuk mengatasi masalah tersebut, pendekatan β-VAE digunakan untuk membatasi kapasitas ruang laten sehingga model hanya menangkap fitur penting dari data melalui mekanisme regularisasi pada fungsi loss. Pendekatan ini mendorong model untuk menangkap fitur-fitur paling signifikan dari data sehingga representasi laten menjadi lebih terorganisasi dan lebih mudah dipahami. Representasi yang teratur ini bermanfaat pada berbagai aplikasi generatif, termasuk interpolasi citra (Cristovao et al., 2020).
 
+## **_Residual Block_**
+Residual block merupakan elemen arsitektural yang digunakan untuk meningkatkan stabilitas proses pelatihan serta kualitas representasi fitur pada model _Variational Autoencoder_ (VAE). Dalam pendekatan _Multiscale Residual_ VAE, _residual block_ ditempatkan pada bagian _encoder_ maupun _decoder_ untuk menjaga agar informasi penting tetap mengalir dengan baik selama proses propagasi. Mekanisme ini memungkinkan jaringan mempelajari fitur secara lebih mendalam tanpa mengalami kendala umum seperti _vanishing gradient_ ketika jumlah lapisan semakin bertambah.
+
+Selain memberikan jalur informasi tambahan melalui koneksi residual, blok ini juga membantu memperkaya karakteristik ruang laten sehingga representasi yang dihasilkan menjadi lebih halus dan bermakna. Dampaknya terlihat pada peningkatan kualitas rekonstruksi terutama pada citra dengan struktur kompleks. Penerapan residual block telah terbukti efektif dalam berbagai model generatif, termasuk arsitektur VAE multiskala yang memanfaatkan _residual connections_ untuk menghasilkan detail visual yang lebih realistis dan stabil (Diamantis et al., 2024)
+
 ## **_Evidance Lower Bound_ (ELBO)**
 Pada _Variational Autoencoder_ (VAE), proses pelatihan dilakukan dengan memaksimalkan _Evidence Lower Bound_ (ELBO), yang menjadi batas bawah dari _log-likelihood_ data. Pendekatan ini digunakan karena posterior sebenarnya p∅(z|x) tidak dapat dihitung secara langsung, sehingga diperlukan distribusi pendekatan q∅(z|x) untuk membangun fungsi objektif yang dapat dioptimalkan.
 Dalam kerangka _variational inference_, _log-likelihood_ dapat dituliskan ulang sebagaimana ditunjukkan pada Persamaan (4):
@@ -177,6 +182,8 @@ César Pérez Curiel. (2022). Análisis del espacio latente en el auto-encoder v
 Cristovao, P., Nakada, H., Tanimura, Y., & Asoh, H. (2020). Generating In-Between Images through Learned Latent Space Representation Using Variational Autoencoders. IEEE Access, 8, 149456–149467. https://doi.org/10.1109/ACCESS.2020.3016313
 
 Dao, T. Van, Sato, H., & Kubo, M. (2022). An Attention Mechanism for Combination of CNN and VAE for Image-Based Malware Classification. IEEE Access, 10(August), 85127–85136. https://doi.org/10.1109/ACCESS.2022.3198072
+
+Diamantis, D. E., Gatoula, P., Koulaouzidis, A., & Iakovidis, D. K. (2024). This Intestine Does Not Exist: Multiscale Residual Variational Autoencoder for Realistic Wireless Capsule Endoscopy Image Generation. IEEE Access, 12(February), 25668–25683. https://doi.org/10.1109/ACCESS.2024.3366801
 
 Mauludiah, S. F. (2025). A SYNERGISTIC APPROACH TO E-COMMERCE RECOMMENDER SYSTEM : LOGISTIC REGRESSION AND KULLBACK-LEIBLER DIVERGENCE. http://scioteca.caf.com/bitstream/handle/123456789/1091/RED2017-Eng-8ene.pdf?sequence=12&isAllowed=y%0Ahttp://dx.doi.org/10.1016/j.regsciurbeco.2008.06.005%0Ahttps://www.researchgate.net/publication/305320484_SISTEM_PEMBETUNGAN_TERPUSAT_STRATEGI_MELESTARI
 
