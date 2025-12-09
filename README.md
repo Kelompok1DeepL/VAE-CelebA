@@ -25,7 +25,9 @@ UNIVERSITAS PEMBANGUNAN NASIONAL "VETERAN" JAWA TIMUR
 # **BAB I — PENDAHULUAN**
 
 ## **Latar Belakang**
+<p align="justify">
 Dalam bidang kecerdasan buatan (Artificial Intelligence), deep learning merupakan metode yang populer untuk pemrosesan citra, khususnya dengan memanfaatkan kemampuan jaringan saraf tiruan untuk mengekstrak fitur dari data berdimensi tinggi. Hal ini memicu pengembangan model generatif yang bertujuan untuk mempelajari representasi data sehingga sistem mampu menghasilkan sampel baru yang relevan. Salah satu arsitektur generatif yang banyak digunakan adalah **Autoencoder (AE)**.
+</p>
 
 Autoencoder (AE) dapat mengubah data berukuran besar menjadi representasi yang lebih kecil tanpa kehilangan informasi penting. Metode ini banyak dimanfaatkan untuk:
 - ekstraksi fitur secara otomatis,
