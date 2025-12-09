@@ -197,6 +197,13 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 |     | Identitas artikel:                                |
 |     |International Conference on Learning, Tahun 2022. | 
 |      |                                          ||
+|1   | Judul:                                            |Metode:|
+|     |   Auto-Encoding Variational Bayes                | Penelitian ini memperkenalkan pendekatan Auto-Encoding Variational Bayes (AEVB) untuk pelatihan model generatif berbasis variabel laten kontinu. Metode yang digunakan mencakup stochastic variational inference, reparameterization trick untuk mengoptimalkan variational lower bound, serta proses pelatihan menggunakan minibatch dengan stochastic gradient ascent. Model diuji pada beberapa dataset seperti MNIST dan Frey Face.|
+|      | Penulis:                                         |Temuan:|
+|      | Diederik P. Kingma & Max Welling    |Hasil penelitian menunjukkan bahwa estimator baru bernama Stochastic Gradient Variational Bayes (SGVB) mampu melakukan inferensi secara efisien pada model laten kontinu. Algoritma AEVB yang diajukan terbukti cepat konvergen dan memberikan performa lebih baik dibandingkan pendekatan sebelumnya. Selain itu, metode ini menghasilkan efek regularisasi alami yang membantu mencegah overfitting selama pelatihan model.|
+|     | Identitas artikel:                                |
+|     |International Conference on Learning, Tahun 2022. | 
+|      |                                          ||
 
 
 
