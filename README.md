@@ -202,7 +202,7 @@ extract_path = "/content/celeba"
 with zipfile.ZipFile(zip_path, 'r') as z:
     z.extractall(extract_path)
 
-print("Done!")
+print("Done!")'''
 
 Pada tahap ini, dataset CelebA (CelebFaces Attributes Dataset) dimuat menggunakan ImageFolder. Dataset ini berisi 202.599 gambar wajah manusia dengan berbagai variasi ekspresi, pencahayaan, dan sudut pandang. Setiap gambar melalui proses preprocessing berupa:
 - Resize (128×128 piksel) agar sesuai dengan arsitektur VAE.
