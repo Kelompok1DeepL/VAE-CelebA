@@ -161,7 +161,7 @@ merupakan <i>Kullback–Leibler (KL) divergence</i> yang memastikan distribusi l
 
 
 <p align="justify">
-Persamaan diatas menunjukkan bahwa nilai z tidak diambil langsung dari distribusi Gaussian, melainkan diperoleh melalui fungsi transformasi g∅ yang memanfaatkan _<i>noise (AE)</i>_ . Dengan cara ini, proses <i>sampling</i> tetap dapat dimasukkan ke dalam alur <i>backpropagation</i>. Dengan kombinasi mekanisme rekonstruksi, regularisasi KL, dan <i>reparameterization trick</i>, VAE mampu menciptakan ruang laten yang lebih konsisten dan memungkinkan pembangkitan data baru dengan pola yang serupa dengan data asli (Dao et al., 2022).
+Persamaan diatas menunjukkan bahwa nilai z tidak diambil langsung dari distribusi Gaussian, melainkan diperoleh melalui fungsi transformasi g∅ yang memanfaatkan <i>noise (AE)</i> . Dengan cara ini, proses <i>sampling</i> tetap dapat dimasukkan ke dalam alur <i>backpropagation</i>. Dengan kombinasi mekanisme rekonstruksi, regularisasi KL, dan <i>reparameterization trick</i>, VAE mampu menciptakan ruang laten yang lebih konsisten dan memungkinkan pembangkitan data baru dengan pola yang serupa dengan data asli (Dao et al., 2022).
 
 ### **2.1.6 <i>Kullback-Leibler (KL) Divergence</i>**
 <p align="justify">
