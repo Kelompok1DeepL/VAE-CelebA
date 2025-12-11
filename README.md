@@ -126,7 +126,7 @@ Hasil ekstraksi fitur kemudian diratakan <em>(_flattening_)</em> dan diteruskan 
 <p align="justify"> 
 <img width="940" height="522" alt="image" src="https://github.com/user-attachments/assets/8911c85e-0c6f-40a1-8a67-6261794bc4c6" />
 
-### **2.1.5 <i>Variational Auto<i>encoder</i> (VAE)**
+### **2.1.5 <i>Variational Autoencoder</i> (VAE)**
 <p align="justify">
 <i>Variational Autoencoder</i> (VAE) merupakan pengembangan dari metode <i>autoencoder</i> tradisional. Pada dasarnya, <i>autoencoder</i> terdiri atas dua komponen utama, yaitu <i>encoder</i> yang bertugas mengubah data berdimensi besar menjadi representasi yang lebih ringkas, serta <i>decoder</i> yang berfungsi mengembalikan representasi tersebut ke bentuk mendekati data awal. Namun, <i>autoencoder</i> biasa cenderung menghasilkan rekonstruksi yang terlalu mirip dengan input sehingga kurang mampu menghasilkan variasi baru. Untuk mengatasi keterbatasan tersebut, VAE memperkenalkan pendekatan probabilistik pada bagian <i>encoder</i> dan menambahkan komponen regularisasi dalam fungsi loss agar ruang laten lebih stabil dan terorganisasi dengan baik (Angelika Septi Rahayu & Santoso, 2023).
 
