@@ -100,7 +100,7 @@ Proyek ini menerapkan VAE dengan menambahkan arsitektur <i>Residual Blocks</i> p
 ### **2.1.1 Dataset CelebA**
 
 <p align="justify">
-Dataset _CelebFaces Attributes_ (CelebA) merupakan salah satu dataset wajah yang banyak digunakan dalam bidang computer vision dan <i>deep learning</i>, terutama untuk berbagai aplikasi yang membutuhkan identifikasi wajah dan analisis atribut wajah. Dataset dirancang untuk mendukung beragam penelitian, mulai dari pengenalan ekspresi, pendeteksian atribut seperti seseorang yang tersenyum, memiliki rambut berwarna tertentu, hingga penggunaan kacamata. Gambar-gambar pada CelebA mencakup variasi pose, kondisi latar belakang yang bervariasi, serta individu dari berbagai karakteristik, sehingga sangat cocok untuk proses pelatihan dan pengujian model berbasis citra wajah. Dataset ini awalnya dikembangkan oleh tim penelitian di MMLAB, The Chinese University of Hong Kong.
+Dataset <i>CelebFaces Attributes</i> (CelebA) merupakan salah satu dataset wajah yang banyak digunakan dalam bidang computer vision dan <i>deep learning</i>, terutama untuk berbagai aplikasi yang membutuhkan identifikasi wajah dan analisis atribut wajah. Dataset dirancang untuk mendukung beragam penelitian, mulai dari pengenalan ekspresi, pendeteksian atribut seperti seseorang yang tersenyum, memiliki rambut berwarna tertentu, hingga penggunaan kacamata. Gambar-gambar pada CelebA mencakup variasi pose, kondisi latar belakang yang bervariasi, serta individu dari berbagai karakteristik, sehingga sangat cocok untuk proses pelatihan dan pengujian model berbasis citra wajah. Dataset ini awalnya dikembangkan oleh tim penelitian di MMLAB, The Chinese University of Hong Kong.
 
 <p align="justify">
 Secara keseluruhan, CelebA terdiri dari 200 gambar wajah selebriti, dengan total 10.177 identitas berbeda, walaupun informasi nama tidak disertakan. Setiap gambar dilengkapi dengan 40 anotasi atribut biner yang menggambarkan karakteristik wajah tertentu serta lima titik landmark yang meliputi posisi kedua mata, hidung, dan dua titik mulut. Dataset ini juga menyediakan berbagai berkas pendukung, seperti kumpulan gambar wajah yang telah melalui proses cropping dan alignment, pembagian data yang direkomendasikan untuk pelatihan, validasi, pengujian, informasi _bounding box_, serta berkas anotasi atribut untuk seluruh gambar.
@@ -108,30 +108,30 @@ Secara keseluruhan, CelebA terdiri dari 200 gambar wajah selebriti, dengan total
 <p align="justify">
 CelebA digunakan secara luas untuk keperluan penelitian akademik dan tersedia hanya untuk penggunaan non-komersial. Dataset ini telah menjadi dasar bagi banyak studi terkait deteksi dan pengenalan wajah, termasuk penelitian oleh Yang, Luo, Loy, dan Tang (2015) yang mengembangkan pendekatan deteksi wajah berbasis pembelajaran mendalam. Dengan jumlah data yang besar, anotasi yang lengkap, serta keberagaman gambar yang tinggi, CelebA menjadi pilihan ideal untuk membangun dan mengevaluasi model-model yang bertujuan mengenali atribut wajah atau menghasilkan kembali citra wajah secara otomatis.
 
-### **2.1.2 _<i>deep learning</i>_**
+### **2.1.2 <i>deep learning</i>**
 <p align="justify">
-_<i>deep learning</i>_ merupakan bagian dari _Machine Learning_ yang dikembangkan berdasarkan cara kerja jaringan saraf biologis pada otak manusia. Pendekatan ini menggunakan model yang disebut Jaringan Saraf Tiruan (_Artificial Neural Networks_/ANN), yang tersusun dari lapisan-lapisan neuron buatan untuk memproses informasi secara berjenjang. Di dalam _<i>deep learning</i>_, terdapat berbagai jenis arsitektur yang dirancang untuk tugas tertentu, seperti _Convolutional Neural Network_ (CNN) untuk pengolahan citra, _Recurrent Neural Network_ (RNN) dan _Long Short-Term Memory_ (LSTM) untuk data berurutan, serta _Self Organizing Maps_ (SOM) untuk pemetaan dan pengelompokan data (Alfarizi M. Riziq Sirfatullah et al., 2023).
+<i>deep learning</i> merupakan bagian dari <i>Machine Learning</i> yang dikembangkan berdasarkan cara kerja jaringan saraf biologis pada otak manusia. Pendekatan ini menggunakan model yang disebut Jaringan Saraf Tiruan (<i>Artificial Neural Networks</i>/ANN), yang tersusun dari lapisan-lapisan neuron buatan untuk memproses informasi secara berjenjang. Di dalam <i>deep learning</i>, terdapat berbagai jenis arsitektur yang dirancang untuk tugas tertentu, seperti <i>Convolutional Neural Network</i> (CNN) untuk pengolahan citra, <i>Recurrent Neural Network</i> (RNN) dan <i>Long Short-Term Memory</i> (LSTM) untuk data berurutan, serta <i>Self Organizing Maps_</i> (SOM) untuk pemetaan dan pengelompokan data (Alfarizi M. Riziq Sirfatullah et al., 2023).
 
-### **2.1.3 _Convolutional Neural Network_ (CNN)**
+### **2.1.3 <i>Convolutional Neural Network</i> (CNN)**
 <p align="justify">
-_Convolutional Neural Network_ (CNN) adalah arsitektur _<i>deep learning</i>_ yang dirancang untuk mempelajari pola penting dari data yang memiliki struktur, seperti citra maupun teks. Model ini tersusun atas beberapa jenis lapisan yang bekerja secara bertahap. Bagian konvolusi berfungsi mengekstraksi ciri menggunakan kernel yang bergerak melintasi data input dan menghasilkan _feature map_ yang mewakili pola-pola penting. Setelah itu, lapisan _pooling_ mereduksi ukuran representasi tersebut sehingga model menjadi lebih efisien dan lebih tahan terhadap perubahan posisi atau pergeseran fitur.
+<i>Convolutional Neural Network</i> (CNN) adalah arsitektur <i>deep learning</i> yang dirancang untuk mempelajari pola penting dari data yang memiliki struktur, seperti citra maupun teks. Model ini tersusun atas beberapa jenis lapisan yang bekerja secara bertahap. Bagian konvolusi berfungsi mengekstraksi ciri menggunakan kernel yang bergerak melintasi data input dan menghasilkan <i>feature map</i> yang mewakili pola-pola penting. Setelah itu, lapisan <i>pooling</i> mereduksi ukuran representasi tersebut sehingga model menjadi lebih efisien dan lebih tahan terhadap perubahan posisi atau pergeseran fitur.
 
 <p align="justify">
-Hasil ekstraksi fitur kemudian diratakan <em>(_flattening_)</em> dan diteruskan ke lapisan _fully connected_ untuk proses klasifikasi akhir. Keunggulan utama CNN terletak pada kemampuannya melakukan ekstraksi fitur secara otomatis tanpa memerlukan rekayasa fitur manual, serta sifat _spatial invariance_ yang membuat model tetap mampu mengenali pola meskipun terjadi perubahan posisi atau bentuk kecil pada input. Pendekatan ini menjadikan CNN efektif digunakan dalam berbagai tugas klasifikasi berbasis gambar maupun data teks berurutan (Metlapalli et al., 2020).
+Hasil ekstraksi fitur kemudian diratakan <em>(_flattening_)</em> dan diteruskan ke lapisan <i>fully connected</i> untuk proses klasifikasi akhir. Keunggulan utama CNN terletak pada kemampuannya melakukan ekstraksi fitur secara otomatis tanpa memerlukan rekayasa fitur manual, serta sifat <i>spatial invariance</i> yang membuat model tetap mampu mengenali pola meskipun terjadi perubahan posisi atau bentuk kecil pada input. Pendekatan ini menjadikan CNN efektif digunakan dalam berbagai tugas klasifikasi berbasis gambar maupun data teks berurutan (Metlapalli et al., 2020).
 
-### **2.1.4 _Auto<i>encoder</i>_**
+### **2.1.4 <i>Auto<i>encoder</i>**
 <p align="justify"> 
-_Auto<i>encoder</i>_ merupakan jaringan saraf yang dirancang untuk mempelajari cara merekonstruksi kembali data masukan. Model ini terdiri dari _<i>encoder</i>_ yang memampatkan input menjadi representasi berdimensi rendah, serta _<i>decoder</i>_ yang menghasilkan rekonstruksi dari representasi tersebut. Meskipun mampu menyalin ulang data, nilai utama _auto<i>encoder</i>_ sering terletak pada representasi latennya yang dapat digunakan untuk berbagai tugas analisis (César Pérez Curiel, 2022). Untuk memberikan gambaran visual mengenai proses kompresi dan rekonstruksi pada auto<i>encoder</i>, ilustrasinya disajikan pada Gambar 1.
+<i>Autoencoder</i> merupakan jaringan saraf yang dirancang untuk mempelajari cara merekonstruksi kembali data masukan. Model ini terdiri dari <i>encoder</i> yang memampatkan input menjadi representasi berdimensi rendah, serta <i>decoder</i> yang menghasilkan rekonstruksi dari representasi tersebut. Meskipun mampu menyalin ulang data, nilai utama <i>autoencoder</i> sering terletak pada representasi latennya yang dapat digunakan untuk berbagai tugas analisis (César Pérez Curiel, 2022). Untuk memberikan gambaran visual mengenai proses kompresi dan rekonstruksi pada <i>autoencoder</i>, ilustrasinya disajikan pada Gambar 1.
     
 <p align="justify"> 
 <img width="940" height="522" alt="image" src="https://github.com/user-attachments/assets/8911c85e-0c6f-40a1-8a67-6261794bc4c6" />
 
 ### **2.1.5 _Variational Auto<i>encoder</i>_ (VAE)**
 <p align="justify">
-_Variational Auto<i>encoder</i>_ (VAE) merupakan pengembangan dari metode _auto<i>encoder</i>_ tradisional. Pada dasarnya, auto<i>encoder</i> terdiri atas dua komponen utama, yaitu _<i>encoder</i>_ yang bertugas mengubah data berdimensi besar menjadi representasi yang lebih ringkas, serta _<i>decoder</i>_ yang berfungsi mengembalikan representasi tersebut ke bentuk mendekati data awal. Namun, _auto<i>encoder</i>_ biasa cenderung menghasilkan rekonstruksi yang terlalu mirip dengan input sehingga kurang mampu menghasilkan variasi baru. Untuk mengatasi keterbatasan tersebut, VAE memperkenalkan pendekatan probabilistik pada bagian _<i>encoder</i>_ dan menambahkan komponen regularisasi dalam fungsi loss agar ruang laten lebih stabil dan terorganisasi dengan baik (Angelika Septi Rahayu & Santoso, 2023).
+<i>Variational Autoencoder</i> (VAE) merupakan pengembangan dari metode <i>autoencoder</i> tradisional. Pada dasarnya, <i>autoencoder</i> terdiri atas dua komponen utama, yaitu <i>encoder</i> yang bertugas mengubah data berdimensi besar menjadi representasi yang lebih ringkas, serta <i>decoder</i> yang berfungsi mengembalikan representasi tersebut ke bentuk mendekati data awal. Namun, <i>autoencoder</i> biasa cenderung menghasilkan rekonstruksi yang terlalu mirip dengan input sehingga kurang mampu menghasilkan variasi baru. Untuk mengatasi keterbatasan tersebut, VAE memperkenalkan pendekatan probabilistik pada bagian <i>encoder</i> dan menambahkan komponen regularisasi dalam fungsi loss agar ruang laten lebih stabil dan terorganisasi dengan baik (Angelika Septi Rahayu & Santoso, 2023).
 
 <p align="justify">
-Untuk membentuk ruang laten yang terstruktur, VAE membuat _<i>encoder</i>_ menghasilkan parameter distribusi Gaussian, yaitu vektor _mean_ dan standar deviasi. Alih-alih menghasilkan satu titik representasi seperti pada _auto<i>encoder</i>_ biasa, VAE melakukan _sampling_ dari distribusi ini dengan menggunakan _reparameterization trick_ sehingga proses pelatihan tetap dapat dilakukan dengan algoritma berbasis gradien. Fungsi objektif VAE terdiri dari dua bagian, yaitu kesalahan rekonstruksi dan penalti regularisasi berupa nilai _Kullback–Leibler_ (KL) _divergence_. Secara matematis, fungsi loss VAE dinyatakan sebagai:
+Untuk membentuk ruang laten yang terstruktur, VAE membuat <i>encoder</i> menghasilkan parameter distribusi Gaussian, yaitu vektor <i>mean</i> dan standar deviasi. Alih-alih menghasilkan satu titik representasi seperti pada <i>autoencoder</i> biasa, VAE melakukan <i>sampling</i> dari distribusi ini dengan menggunakan <i>reparameterization trick</i> sehingga proses pelatihan tetap dapat dilakukan dengan algoritma berbasis gradien. Fungsi objektif VAE terdiri dari dua bagian, yaitu kesalahan rekonstruksi dan penalti regularisasi berupa nilai <i>Kullback–Leibler (KL) divergence</i>. Secara matematis, fungsi loss VAE dinyatakan sebagai:
 
 <p align="center">
     $$
@@ -152,7 +152,7 @@ Persamaan diatas terdiri dari dua bagian. Komponen pertama, yaitu nilai
 <p align="center">  
         $D_{KL}\big(q_\phi(z \mid x_i)\,\|\,p(z)\big)$ 
 <p align="justify">  
-merupakan Kullback–Leibler (KL) divergence yang memastikan distribusi laten hasil encoder tetap berada dekat dengan distribusi prior, biasanya distribusi normal standar. Agar proses sampling tetap dapat diturunkan secara diferensial, representasi laten dihitung menggunakan formulasi:
+merupakan <i>Kullback–Leibler (KL) divergence</i> yang memastikan distribusi laten hasil encoder tetap berada dekat dengan distribusi prior, biasanya distribusi normal standar. Agar proses sampling tetap dapat diturunkan secara diferensial, representasi laten dihitung menggunakan formulasi:
 <p align="center">
     $$
     z_{i,k} = g_\phi(i,k, x_i) + \mathcal{N}(0,1)
@@ -161,11 +161,11 @@ merupakan Kullback–Leibler (KL) divergence yang memastikan distribusi laten ha
 
 
 <p align="justify">
-Persamaan diatas menunjukkan bahwa nilai z tidak diambil langsung dari distribusi Gaussian, melainkan diperoleh melalui fungsi transformasi g∅ yang memanfaatkan _<i>noise (AE)</i>_ . Dengan cara ini, proses _sampling_ tetap dapat dimasukkan ke dalam alur _backpropagation_. Dengan kombinasi mekanisme rekonstruksi, regularisasi KL, dan _reparameterization trick_, VAE mampu menciptakan ruang laten yang lebih konsisten dan memungkinkan pembangkitan data baru dengan pola yang serupa dengan data asli (Dao et al., 2022).
+Persamaan diatas menunjukkan bahwa nilai z tidak diambil langsung dari distribusi Gaussian, melainkan diperoleh melalui fungsi transformasi g∅ yang memanfaatkan _<i>noise (AE)</i>_ . Dengan cara ini, proses <i>sampling</i> tetap dapat dimasukkan ke dalam alur <i>backpropagation</i>. Dengan kombinasi mekanisme rekonstruksi, regularisasi KL, dan <i>reparameterization trick</i>, VAE mampu menciptakan ruang laten yang lebih konsisten dan memungkinkan pembangkitan data baru dengan pola yang serupa dengan data asli (Dao et al., 2022).
 
-### **2.1.6 _Kullback-Leibler_ (KL) _Divergence_**
+### **2.1.6 <i>Kullback-Leibler (KL) Divergence</i>**
 <p align="justify">
-_Kullback-Leibler_ (KL) _Divergence_ merupakan ukuran yang digunakan untuk melihat sejauh mana suatu distribusi probabilitas berbeda dari distribusi acuan. Nilai KL digunakan untuk menilai seberapa besar informasi baru yang terkandung dalam suatu distribusi dibandingkan dengan referensinya. Semakin besar nilai _divergence_, semakin besar pula perbedaan kedua distribusi tersebut. Sebaliknya, nilai yang kecil menunjukkan bahwa distribusi tersebut memiliki kemiripan yang tinggi. Rumus _KL Divergence_ secara umum dapat ditulis sebagai (_KL Divergence_):
+<i>Kullback-Leibler (KL) Divergence</i> merupakan ukuran yang digunakan untuk melihat sejauh mana suatu distribusi probabilitas berbeda dari distribusi acuan. Nilai KL digunakan untuk menilai seberapa besar informasi baru yang terkandung dalam suatu distribusi dibandingkan dengan referensinya. Semakin besar nilai <i>divergence</i>, semakin besar pula perbedaan kedua distribusi tersebut. Sebaliknya, nilai yang kecil menunjukkan bahwa distribusi tersebut memiliki kemiripan yang tinggi. Rumus <i>KL Divergence</i> secara umum dapat ditulis sebagai (Mauludiah, 2025):
 
 <p align="center">
 $D_{KL}(P\|Q)=\sum_{x\in X} P(x)\,\log\frac{P(x)}{Q(x)}$
@@ -184,15 +184,15 @@ Untuk mengatasi masalah tersebut, pendekatan β-VAE digunakan untuk membatasi ka
 
 ### **2.1.8 <i>Residual Block</i>**
 <p align="justify">
-Residual block merupakan elemen arsitektural yang digunakan untuk meningkatkan stabilitas proses pelatihan serta kualitas representasi fitur pada model _Variational Auto<i>encoder</i>_ (VAE). Dalam pendekatan _Multiscale Residual_ VAE, <i>Residual Block</i> ditempatkan pada bagian _<i>encoder</i>_ maupun _<i>decoder</i>_ untuk menjaga agar informasi penting tetap mengalir dengan baik selama proses propagasi. Mekanisme ini memungkinkan jaringan mempelajari fitur secara lebih mendalam tanpa mengalami kendala umum seperti <i>vanishing gradient</i>ketika jumlah lapisan semakin bertambah.
+<i>Residual block</i> merupakan elemen arsitektural yang digunakan untuk meningkatkan stabilitas proses pelatihan serta kualitas representasi fitur pada model <i>Variational Autoencoder</i> (VAE). Dalam pendekatan <i>Multiscale Residual</i> VAE, <i>Residual Block</i> ditempatkan pada bagian <i>encoder</i> maupun <i>decoder</i> untuk menjaga agar informasi penting tetap mengalir dengan baik selama proses propagasi. Mekanisme ini memungkinkan jaringan mempelajari fitur secara lebih mendalam tanpa mengalami kendala umum seperti <i>vanishing gradient</i>ketika jumlah lapisan semakin bertambah.
 
 <p align="justify">
-Selain memberikan jalur informasi tambahan melalui koneksi residual, blok ini juga membantu memperkaya karakteristik ruang laten sehingga representasi yang dihasilkan menjadi lebih halus dan bermakna. Dampaknya terlihat pada peningkatan kualitas rekonstruksi terutama pada citra dengan struktur kompleks. Penerapan residual block telah terbukti efektif dalam berbagai model generatif, termasuk arsitektur VAE multiskala yang memanfaatkan _residual connections_ untuk menghasilkan detail visual yang lebih realistis dan stabil (Diamantis et al., 2024)
+Selain memberikan jalur informasi tambahan melalui koneksi residual, blok ini juga membantu memperkaya karakteristik ruang laten sehingga representasi yang dihasilkan menjadi lebih halus dan bermakna. Dampaknya terlihat pada peningkatan kualitas rekonstruksi terutama pada citra dengan struktur kompleks. Penerapan residual block telah terbukti efektif dalam berbagai model generatif, termasuk arsitektur VAE multiskala yang memanfaatkan <i>residual connections</i> untuk menghasilkan detail visual yang lebih realistis dan stabil (Diamantis et al., 2024)
 
 ### **2.1.9 _Evidance Lower Bound_ (ELBO)**
 <p align="justify">
-Pada _Variational Auto<i>encoder</i>_ (VAE), proses pelatihan dilakukan dengan memaksimalkan _Evidence Lower Bound_ (ELBO), yang menjadi batas bawah dari _log-likelihood_ data. Pendekatan ini digunakan karena posterior sebenarnya p∅(z|x) tidak dapat dihitung secara langsung, sehingga diperlukan distribusi pendekatan q∅(z|x) untuk membangun fungsi objektif yang dapat dioptimalkan.
-Dalam kerangka _variational inference_, _log-likelihood_ dapat dituliskan ulang sebagaimana ditunjukkan pada Persamaan (4):
+Pada <i>Variational Autoencoder</i> (VAE), proses pelatihan dilakukan dengan memaksimalkan <i>Evidence Lower Bound</i> (ELBO), yang menjadi batas bawah dari <i>log-likelihood</i> data. Pendekatan ini digunakan karena posterior sebenarnya p∅(z|x) tidak dapat dihitung secara langsung, sehingga diperlukan distribusi pendekatan q∅(z|x) untuk membangun fungsi objektif yang dapat dioptimalkan.
+Dalam kerangka <i>variational inference</i>, <i>log-likelihood</i> dapat dituliskan ulang sebagaimana ditunjukkan pada Persamaan (4):
     
 <p align="center">
     $$
@@ -208,7 +208,7 @@ Dalam kerangka _variational inference_, _log-likelihood_ dapat dituliskan ulang 
 
 
 <p align="justify">
-Persamaan diatas memperlihatkan bahwa _log-likelihood_ tersusun dari dua bagian, yaitu nilai ekspektasi terhadap rasio antara model generatif dan distribusi pendekatan, serta _Kullback–Leibler divergence_ antara posterior pendekatan dan posterior sebenarnya. Karena _KL divergence_ selalu bernilai non-negatif, bagian ekspektasi tersebut menjadi batas bawah dari _log-likelihood_ dan disebut sebagai ELBO. Komponen regularisasi dalam ELBO dijelaskan melalui KL divergence antara distribusi pendekatan dan prior, sebagaimana dituliskan pada Persamaan dibawah ini:
+Persamaan diatas memperlihatkan bahwa <i>log-likelihood</i> tersusun dari dua bagian, yaitu nilai ekspektasi terhadap rasio antara model generatif dan distribusi pendekatan, serta <i>Kullback–Leibler divergence</i> antara posterior pendekatan dan posterior sebenarnya. Karena <i>KL divergence</i> selalu bernilai non-negatif, bagian ekspektasi tersebut menjadi batas bawah dari <i>log-likelihood</i> dan disebut sebagai ELBO. Komponen regularisasi dalam ELBO dijelaskan melalui <i>KL divergence</i> antara distribusi pendekatan dan prior, sebagaimana dituliskan pada Persamaan dibawah ini:
 
 <p align="center">
     $$
@@ -221,7 +221,7 @@ Persamaan diatas memperlihatkan bahwa _log-likelihood_ tersusun dari dua bagian,
 
 
 <p align="justify">
-Persamaan diatas menggambarkan seberapa jauh distribusi laten hasil _<i>encoder</i>_ menyimpang dari prior. Semakin besar nilainya, semakin besar penalti yang diberikan model untuk menjaga agar ruang laten tetap terstruktur dan tidak menjadi acak. Dengan menggabungkan komponen rekonstruksi dan regularisasi tersebut, batas bawah yang menjadi tujuan optimasi VAE dituliskan pada Persamaan dibawah ini:
+Persamaan diatas menggambarkan seberapa jauh distribusi laten hasil <i>encoder</i> menyimpang dari prior. Semakin besar nilainya, semakin besar penalti yang diberikan model untuk menjaga agar ruang laten tetap terstruktur dan tidak menjadi acak. Dengan menggabungkan komponen rekonstruksi dan regularisasi tersebut, batas bawah yang menjadi tujuan optimasi VAE dituliskan pada Persamaan dibawah ini:
 
 <p align="center">
     $$
@@ -236,7 +236,7 @@ Persamaan diatas menggambarkan seberapa jauh distribusi laten hasil _<i>encoder<
 <img width="466" height="35" alt="image" src="https://github.com/user-attachments/assets/7e26055f-3f5b-4b0c-ad47-f7e1fca6899a" />
 
 <p align="justify">
-Persamaan diatas merangkum dua tujuan penting dalam pelatihan VAE. Bagian pertama (_reconstruction term_) mengukur seberapa baik model dapat membangun kembali input. Bagian kedua (_KL term_) memastikan distribusi laten tetap mendekati prior. Kombinasi keduanya menghasilkan rekonstruksi yang baik sekaligus ruang laten yang stabil dan teratur, yang penting untuk berbagai aplikasi generatif dan analisis representasi.
+Persamaan diatas merangkum dua tujuan penting dalam pelatihan VAE. Bagian pertama <i>(reconstruction term)</i> mengukur seberapa baik model dapat membangun kembali input. Bagian kedua <i>(KL term)</i> memastikan distribusi laten tetap mendekati prior. Kombinasi keduanya menghasilkan rekonstruksi yang baik sekaligus ruang laten yang stabil dan teratur, yang penting untuk berbagai aplikasi generatif dan analisis representasi.
 
 ## **2.2 Penelitian Teradahulu**
 <p align="justify">
@@ -275,7 +275,7 @@ Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai
 
 
 <p align="justify">
-Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpulkan bahwa penggunaan _Variational Auto<i>encoder</i>_ (VAE) telah diterapkan dalam berbagai konteks, seperti deteksi manipulasi wajah, ekstraksi fitur citra kebakaran, dan prediksi cacat pada mesin. Meskipun demikian, sebagian besar penelitian tersebut lebih menekankan fungsi VAE sebagai alat klasifikasi atau pendukung sistem deteksi, bukan sebagai model generatif yang berfokus pada proses rekonstruksi citra. Selain itu, dataset yang digunakan pada studi terdahulu juga bervariasi dan sebagian besar tidak melibatkan dataset wajah berskala besar seperti CelebA. Di sisi lain, penelitian yang bersifat fundamental seperti studi Kingma dan Welling (2013) memang menjadi dasar konsep VAE, tetapi belum secara khusus mengevaluasi performanya dalam menghasilkan rekonstruksi citra wajah beranotasi kompleks. Dengan demikian, masih terdapat ruang penelitian untuk mengevaluasi kemampuan VAE sebagai model generatif dalam melakukan rekonstruksi citra wajah pada dataset CelebA, sekaligus menguji sejauh mana kualitas hasil rekonstruksi tersebut dapat merepresentasikan karakteristik visual asli. Penelitian ini hadir untuk mengisi celah tersebut melalui implementasi VAE yang difokuskan pada proses rekonstruksi citra wajah sebagai bentuk pendekatan generatif dalam domain _<i>deep learning</i>_.
+Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpulkan bahwa penggunaan <i>Variational Autoencoder</i> (VAE) telah diterapkan dalam berbagai konteks, seperti deteksi manipulasi wajah, ekstraksi fitur citra kebakaran, dan prediksi cacat pada mesin. Meskipun demikian, sebagian besar penelitian tersebut lebih menekankan fungsi VAE sebagai alat klasifikasi atau pendukung sistem deteksi, bukan sebagai model generatif yang berfokus pada proses rekonstruksi citra. Selain itu, dataset yang digunakan pada studi terdahulu juga bervariasi dan sebagian besar tidak melibatkan dataset wajah berskala besar seperti CelebA. Di sisi lain, penelitian yang bersifat fundamental seperti studi Kingma dan Welling (2013) memang menjadi dasar konsep VAE, tetapi belum secara khusus mengevaluasi performanya dalam menghasilkan rekonstruksi citra wajah beranotasi kompleks. Dengan demikian, masih terdapat ruang penelitian untuk mengevaluasi kemampuan VAE sebagai model generatif dalam melakukan rekonstruksi citra wajah pada dataset CelebA, sekaligus menguji sejauh mana kualitas hasil rekonstruksi tersebut dapat merepresentasikan karakteristik visual asli. Penelitian ini hadir untuk mengisi celah tersebut melalui implementasi VAE yang difokuskan pada proses rekonstruksi citra wajah sebagai bentuk pendekatan generatif dalam domain <i>deep learning</i>.
 
 
 # **BAB III — METODOLOGI**
