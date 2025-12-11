@@ -119,7 +119,7 @@ CelebA digunakan secara luas untuk keperluan penelitian akademik dan tersedia ha
 <p align="justify">
 Hasil ekstraksi fitur kemudian diratakan <em>(_flattening_)</em> dan diteruskan ke lapisan <i>fully connected</i> untuk proses klasifikasi akhir. Keunggulan utama CNN terletak pada kemampuannya melakukan ekstraksi fitur secara otomatis tanpa memerlukan rekayasa fitur manual, serta sifat <i>spatial invariance</i> yang membuat model tetap mampu mengenali pola meskipun terjadi perubahan posisi atau bentuk kecil pada input. Pendekatan ini menjadikan CNN efektif digunakan dalam berbagai tugas klasifikasi berbasis gambar maupun data teks berurutan (Metlapalli et al., 2020).
 
-### **2.1.4 <i>Auto<i>encoder</i>**
+### **2.1.4 <i>Autoencoder</i>**
 <p align="justify"> 
 <i>Autoencoder</i> merupakan jaringan saraf yang dirancang untuk mempelajari cara merekonstruksi kembali data masukan. Model ini terdiri dari <i>encoder</i> yang memampatkan input menjadi representasi berdimensi rendah, serta <i>decoder</i> yang menghasilkan rekonstruksi dari representasi tersebut. Meskipun mampu menyalin ulang data, nilai utama <i>autoencoder</i> sering terletak pada representasi latennya yang dapat digunakan untuk berbagai tugas analisis (César Pérez Curiel, 2022). Untuk memberikan gambaran visual mengenai proses kompresi dan rekonstruksi pada <i>autoencoder</i>, ilustrasinya disajikan pada Gambar 1.
     
