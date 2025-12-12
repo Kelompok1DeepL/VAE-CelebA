@@ -2,7 +2,7 @@
 
 # LAPORAN  
 ## PROYEK MATA KULIAH <i>deep learning</i>  
-### “Implementasi VAE Berbasis Residual Block untuk Rekonstruksi Citra Wajah pada Dataset CelebA”
+### “IMPLEMENTASI <i>VARIATIONAL AUTOENCODER</i> (VAE) BERBASIS <i>RESIDUAL BLOCKS</i> UNTUK REKONSTRUKSI CITRA WAJAH PADA DATASET CELEBA”
 
 ---
     
@@ -53,7 +53,7 @@ AE memiliki kemampuan untuk mengompres data ke dalam ruang laten berdimensi rend
 Susanto dan Pardede membandingkan penggunaan AE dan VAE untuk reduksi dimensi pada prediksi cacat mesin mobil. Hasil penelitian menunjukkan bahwa VAE menghasilkan kinerja yang lebih baik dibandingkan AE.
 
 <p align="justify">
-Arsitektur VAE diperkenalkan oleh Dienderik P. Kingma dan Max Welling melalui makalah Auto-Encoding Variational Bayes pada tahun 2013. <i>Variational Autoencoder</i> (VAE) merupakan model generatif probabilistik yang mengkodekan variabel laten sebagai distribusi probabilitas. VAE mengestimasi dua vektor, antara lain:
+Arsitektur VAE diperkenalkan oleh Dienderik P. Kingma dan Max Welling melalui makalah <i>Auto-Encoding Variational Bayes</i> pada tahun 2013. <i>Variational Autoencoder</i> (VAE) merupakan model generatif probabilistik yang mengkodekan variabel laten sebagai distribusi probabilitas. VAE mengestimasi dua vektor, antara lain:
     
 - **Rata-rata (μ)**  
 - **Standar deviasi (σ)**  
@@ -100,7 +100,7 @@ Proyek ini menerapkan VAE dengan menambahkan arsitektur <i>Residual Blocks</i> p
 ### **2.1.1 Dataset CelebA**
 
 <p align="justify">
-Dataset <i>CelebFaces Attributes</i> (CelebA) merupakan salah satu dataset wajah yang banyak digunakan dalam bidang computer vision dan <i>deep learning</i>, terutama untuk berbagai aplikasi yang membutuhkan identifikasi wajah dan analisis atribut wajah. Dataset dirancang untuk mendukung beragam penelitian, mulai dari pengenalan ekspresi, pendeteksian atribut seperti seseorang yang tersenyum, memiliki rambut berwarna tertentu, hingga penggunaan kacamata. Gambar pada CelebA mencakup variasi pose, kondisi latar belakang yang bervariasi, serta individu dari berbagai karakteristik, sehingga sangat cocok untuk proses pelatihan dan pengujian model berbasis citra wajah. Dataset ini awalnya dikembangkan oleh tim penelitian di MMLAB, <i>The Chinese University of Hong Kong.</i>
+Dataset <i>CelebFaces Attributes</i> (CelebA) merupakan salah satu dataset wajah yang banyak digunakan dalam bidang computer vision dan <i>deep learning</i>, terutama untuk berbagai aplikasi yang membutuhkan identifikasi wajah dan analisis atribut wajah. Dataset dirancang untuk mendukung beragam penelitian, mulai dari pengenalan ekspresi, pendeteksian atribut seperti ekspresi tersenyum, warna rambut tertentu, hingga penggunaan kacamata. Gambar pada CelebA mencakup variasi pose, kondisi latar belakang, serta individu dari berbagai karakteristik, sehingga sangat cocok untuk proses pelatihan dan pengujian model berbasis citra wajah. Dataset ini awalnya dikembangkan oleh tim penelitian di MMLAB, <i>The Chinese University of Hong Kong.</i>
 
 <p align="justify">
 Secara keseluruhan, CelebA terdiri dari 200 gambar wajah selebriti, dengan total 10.177 identitas berbeda, walaupun informasi nama tidak disertakan. Setiap gambar dilengkapi dengan 40 anotasi atribut biner yang menggambarkan karakteristik wajah tertentu serta lima titik <i>landmark</i> yang meliputi posisi kedua mata, hidung, dan dua titik mulut. Dataset ini juga menyediakan berbagai berkas pendukung, seperti kumpulan gambar wajah yang telah melalui proses <i>cropping</i> dan <i>alignment</i>, pembagian data yang direkomendasikan untuk pelatihan, validasi, pengujian, informasi <i>bounding box</i>, serta berkas anotasi atribut untuk seluruh gambar.
