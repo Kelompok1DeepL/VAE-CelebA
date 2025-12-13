@@ -238,7 +238,7 @@ Persamaan diatas menggambarkan seberapa jauh distribusi laten hasil <i>encoder</
 <p align="justify">
 Persamaan diatas merangkum dua tujuan penting dalam pelatihan VAE. Bagian pertama <i>(reconstruction term)</i> mengukur seberapa baik model dapat membangun kembali input. Bagian kedua <i>(KL term)</i> memastikan distribusi laten tetap mendekati prior. Kombinasi keduanya menghasilkan rekonstruksi yang baik sekaligus ruang laten yang stabil dan teratur, yang penting untuk berbagai aplikasi generatif dan analisis representasi.
 
-## **2.2 Penelitian Teradahulu**
+## **2.2 Penelitian Terdahulu**
 <p align="justify">
 Sebagai dasar penyusunan penelitian ini, dilakukan penelusuran terhadap berbagai studi sebelumnya yang berkaitan dengan topik yang disusun. Penelitian-penelitian tersebut dirangkum dalam Tabel 1. berikut:
 
