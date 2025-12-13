@@ -280,11 +280,12 @@ Berdasarkan hasil kajian terhadap beberapa penelitian sebelumnya, dapat disimpul
 
 # **BAB III — METODOLOGI**
 ## **3.1 Tahapan Kerja**
+<p align="justify"> 
 <img width="482" height="1091" alt="deeplearning" src="https://github.com/user-attachments/assets/5ebfe791-d4bb-478c-a3d8-8bf466b4d1f6" />
 
 ### **3.1.2 Mulai Penelitian**
 <p align="justify">
-Tahap ini merupakan titik awal penelitian, di mana peneliti menentukan topik, tujuan, dan metode yang akan digunakan. Pada tahap ini juga dirumuskan bahwa penelitian akan menggunakan model Variational Auto<i>encoder</i> (VAE) dengan dataset CelebA untuk melakukan pemodelan dan generasi wajah.
+Tahap ini merupakan titik awal penelitian, di mana peneliti menentukan topik, tujuan, dan metode yang akan digunakan. Pada tahap ini juga dirumuskan bahwa penelitian akan menggunakan model <i>Variational</i> <i>Auto</i><i>encoder</i> (VAE) dengan dataset CelebA untuk melakukan pemodelan dan generasi wajah.
 
 ### **3.1.2 Ambil Dataset CelebA**
 <p align="justify">
@@ -296,11 +297,11 @@ Tahap ini bertujuan untuk menyiapkan data sebelum masuk ke model. Gambar diubah 
 
 ### **3.1.4 Proses Training (Loss = Reconstruction + KL Divergence)**
 <p align="justify">
-Pada tahap ini model dilatih menggunakan data yang sudah diproses. Model VAE mempelajari bagaimana mengompresi gambar ke ruang laten dan merekonstruksinya kembali. Proses pelatihan berfokus pada minimisasi dua komponen loss, yaitu <i><i>Reconstruction Loss</i></i> untuk mengukur kemiripan hasil rekonstruksi dengan gambar asli dan <i>KL divergence</i> untuk mengatur distribusi data di ruang laten.
+Pada tahap ini model dilatih menggunakan data yang sudah diproses. Model VAE mempelajari bagaimana mengompresi gambar ke ruang laten dan merekonstruksinya kembali. Proses pelatihan berfokus pada minimisasi dua komponen <i>loss</i>, yaitu <i><i>Reconstruction Loss</i></i> untuk mengukur kemiripan hasil rekonstruksi dengan gambar asli dan <i>KL divergence</i> untuk mengatur distribusi data di ruang laten.
 
 ### **3.1.5 Visualisasi**
 <p align="justify">
-Setelah proses training, dilakukan visualisasi untuk melihat hasil kerja model. Pada tahap ini ditampilkan grafik loss selama pelatihan dan beberapa contoh hasil keluaran model untuk mempermudah analisis performa.
+Setelah proses training, dilakukan visualisasi untuk melihat hasil kerja model. Pada tahap ini ditampilkan grafik <i>loss</i> selama pelatihan dan beberapa contoh hasil keluaran model untuk mempermudah analisis performa.
 
 ### **3.1.6 Rekonstruksi**
 <p align="justify">
@@ -312,7 +313,7 @@ Pada tahap ini dilakukan interpolasi di ruang laten, yaitu transisi bertahap ant
 
 ### **3.1.8 Evaluasi**
 <p align="justify">
-Tahap evaluasi dilakukan untuk menilai kinerja model secara keseluruhan. Evaluasi dilakukan dengan membandingkan hasil rekonstruksi, hasil interpolasi, dan nilai <i>los</i>s selama <i>training</i> untuk memastikan model bekerja sesuai tujuan penelitian.
+Tahap evaluasi dilakukan untuk menilai kinerja model secara keseluruhan. Evaluasi dilakukan dengan membandingkan hasil rekonstruksi, hasil interpolasi, dan nilai <i>loss</i> selama <i>training</i> untuk memastikan model bekerja sesuai tujuan penelitian.
 
 ### **3.1.9 Kesimpulan Penelitian**
 <p align="justify">
@@ -326,7 +327,7 @@ Tahap ini merupakan akhir dari seluruh rangkaian penelitian. Semua hasil telah d
 
 ## **3.2 Dataset**
 <p align="justify">
-Dataset yang digunakan dalam penelitian ini adalah <i>CelebFaces Attributes Dataset</i> (CelebA) dari kaggle (https://www.kaggle.com/datasets/jessicali9530/celeba-dataset), yaitu kumpulan citra wajah manusia yang sangat populer untuk tugas‑tugas <i>computer vision</i> dan model generatif. Dataset ini berisi 200 gambar wajah dengan resolusi asli 178 × 218 piksel, menampilkan beragam ekspresi, posisi kepala, kondisi pencahayaan, serta variasi karakteristik wajah lainnya. Pada proses pra‑pengolahan di <i>notebook</i>, seluruh gambar diubah ukurannya menjadi 128 × 128 piksel agar sesuai dengan arsitektur model VAE yang digunakan. Dataset CelebA dipilih karena ukurannya yang besar dan keragamannya yang tinggi, sehingga cocok untuk tugas seperti rekonstruksi wajah, pembelajaran distribusi laten wajah, generasi citra baru, dan interpolasi di ruang laten. Transformasi pada data dilakukan menggunakan modul torchvision.transforms, yang meliputi <i>Resize</i> untuk menyesuaikan resolusi gambar, <i>ToTensor</i> untuk mengubah gambar dari format <i>PIL/NumPy</i> menjadi tensor PyTorch berukuran (C, H, W) dengan skala <i>pixel</i> 0–1, serta Normalize dengan mean dan standar deviasi 0.5 agar nilai <i>pixel</i> berada pada rentang –1 hingga 1. Normalisasi ini membantu stabilitas proses pelatihan dan mempercepat konvergensi model VAE.
+Dataset yang digunakan dalam penelitian ini adalah <i>CelebFaces Attributes Dataset</i> (CelebA) dari kaggle (https://www.kaggle.com/datasets/jessicali9530/celeba-dataset), yaitu kumpulan citra wajah manusia yang sangat populer untuk tugas‑tugas <i>computer vision</i> dan model generatif. Dataset ini berisi 200 gambar wajah dengan resolusi asli 178 × 218 piksel, menampilkan beragam ekspresi, posisi kepala, kondisi pencahayaan, serta variasi karakteristik wajah lainnya. Pada proses pra‑pengolahan di <i>notebook</i>, seluruh gambar diubah ukurannya menjadi 128 × 128 piksel agar sesuai dengan arsitektur model VAE yang digunakan. Dataset CelebA dipilih karena ukurannya yang besar dan keragamannya yang tinggi, sehingga cocok untuk tugas seperti rekonstruksi wajah, pembelajaran distribusi laten wajah, generasi citra baru, dan interpolasi di ruang laten. Transformasi pada data dilakukan menggunakan modul torchvision.transforms, yang meliputi <i>Resize</i> untuk menyesuaikan resolusi gambar, <i>ToTensor</i> untuk mengubah gambar dari format <i>PIL/NumPy</i> menjadi tensor PyTorch berukuran (C, H, W) dengan skala <i>pixel</i> 0–1, serta  <i>Normalize</i> dengan mean dan standar deviasi 0.5 agar nilai <i>pixel</i> berada pada rentang –1 hingga 1. Normalisasi ini membantu stabilitas proses pelatihan dan mempercepat konvergensi model VAE.
 
 # **BAB IV — HASIL & PEMBAHASAN**
 ## **4.1 Load Dataset**
@@ -507,7 +508,7 @@ Pada tahap <i>Build Model</i>, arsitektur VAE disusun dalam bentuk dua komponen 
     vae.train()
 
 <p align="justify">    
-Pada tahap <i>training</i>, proses dimulai dengan <i>forward pass</i>, yaitu gambar input dimasukkan ke dalam <i>encoder</i> untuk menghasilkan dua parameter, yaitu mu dan logvar, yang merepresentasikan distribusi laten. Dari parameter ini, model melakukan proses <i>reparameterization</i> untuk menghasilkan nilai laten z, yang kemudian diteruskan ke <i>decoder</i> untuk menghasilkan citra rekonstruksi. Setelah rekonstruksi dihasilkan, model menghitung nilai <i>loss</i> yang terdiri dari dua komponen: <i><i>Reconstruction Loss</i></i> (MSE) yang mengukur seberapa mirip citra hasil rekonstruksi dengan citra asli, serta KL Divergence yang memastikan bahwa distribusi laten mendekati distribusi Gaussian standar. Selanjutnya dilakukan <i>backward pass</i>, yaitu proses propagasi balik menggunakan optimizer.zero_grad(), loss.backward(), dan optimizer.step() untuk memperbarui bobot model berdasarkan <i>error</i> yang diperoleh. Pada setiap <i>epoch</i>, model juga menyimpan <i>checkpoint</i> agar hasil pelatihan dapat dipantau dan dilanjutkan, serta menghasilkan sampel wajah baru dari ruang laten. Seluruh proses ini diulang selama beberapa <i>epoch</i>, dan pada tiap <i>epoch</i> dicatat nilai <i>loss</i> rata-rata untuk melihat perkembangan performa model selama pelatihan.
+Pada tahap <i>training</i>, proses dimulai dengan <i>forward pass</i>, yaitu gambar input dimasukkan ke dalam <i>encoder</i> untuk menghasilkan dua parameter, yaitu mu dan logvar, yang merepresentasikan distribusi laten. Dari parameter ini, model melakukan proses <i>reparameterization</i> untuk menghasilkan nilai laten z, yang kemudian diteruskan ke <i>decoder</i> untuk menghasilkan citra rekonstruksi. Setelah rekonstruksi dihasilkan, model menghitung nilai <i>loss</i> yang terdiri dari dua komponen: <i><i>Reconstruction Loss</i></i> (MSE) yang mengukur seberapa mirip citra hasil rekonstruksi dengan citra asli, serta <i>KL Divergence</i> yang memastikan bahwa distribusi laten mendekati distribusi Gaussian standar. Selanjutnya dilakukan <i>backward pass</i>, yaitu proses propagasi balik menggunakan optimizer.zero_grad(), loss.backward(), dan optimizer.step() untuk memperbarui bobot model berdasarkan <i>error</i> yang diperoleh. Pada setiap <i>epoch</i>, model juga menyimpan <i>checkpoint</i> agar hasil pelatihan dapat dipantau dan dilanjutkan, serta menghasilkan sampel wajah baru dari ruang laten. Seluruh proses ini diulang selama beberapa <i>epoch</i>, dan pada tiap <i>epoch</i> dicatat nilai <i>loss</i> rata-rata untuk melihat perkembangan performa model selama pelatihan.
 
 
 <img width="485" height="421" alt="image" src="https://github.com/user-attachments/assets/c90337dc-0145-4b3a-bb6b-d312800eb9c4" />
