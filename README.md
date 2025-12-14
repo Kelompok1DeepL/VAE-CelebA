@@ -42,9 +42,9 @@ Dalam bidang kecerdasan buatan <i>(Artificial Intelligence)</i>, <i>deep learnin
 <p align="justify">
 AE berfungsi untuk mengekstrak informasi data, yaitu variabel laten, serta membuang <i>noise (AE)</i>yang tidak diperlukan. AE bekerja dengan mengkompresi data input menjadi representasi berdimensi rendah melalui <b><i>encoder</i></b>, kemudian merekonstruksi kembali data menggunakan <b><i>decoder</i></b>. Struktur utama AE terdiri dari:
     
-- **<i>Encoder</i>** → mengekstrak variabel laten,  
-- **<i>Bottleneck</i>** → ruang laten tempat informasi dipadatkan,  
-- **<i>Decoder</i>** → merekonstruksi kembali data ke bentuk semula.
+- **_Encoder_** → mengekstrak variabel laten,  
+- **_Bottleneck_** → ruang laten tempat informasi dipadatkan,  
+- **_Decoder_** → merekonstruksi kembali data ke bentuk semula.
 
 <p align="justify">
 AE memiliki kemampuan untuk mengompres data ke dalam ruang laten berdimensi rendah. Namun, representasi laten yang dihasilkan AE sering tidak terstruktur sehingga keterampilan model dalam menghasilkan sampel baru menjadi terbatas. Hal ini dapat diatasi dengan <b><i>Variational Autoencoder</i> (VAE)</b>.
@@ -61,8 +61,8 @@ Arsitektur VAE diperkenalkan oleh Dienderik P. Kingma dan Max Welling melalui ma
 <p align="justify">
 Pendekatan ini memungkinkan terbentuknya ruang laten yang terstruktur, mulus, dan dapat diinterpolasi. Fungsi <i>loss</i> VAE terdiri dari:
     
-- **<i><i>Reconstruction Loss</i></i>**  
-- **<i>Kullback-Leibler Divergence</i>**
+- **_Reconstruction Loss_**  
+- **_Kullback-Leibler Divergence_**
 
 <p align="justify">
 Nugroho, dkk menggunakan VAE untuk mengekstraksi fitur pada sistem deteksi api. Hasilnya menunjukkan bahwa vektor laten mengalami perubahan menjadi lebih kecil dibandingkan dengan data awal tanpa kehilangan fitur penting. Disisi lain Giger dan Csillaghy menggunakan VAE untuk mendeteksi anomali pada <i>full-disk solar images</i>
