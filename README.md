@@ -16,9 +16,7 @@
 - Niken Sulistyowati — (22083010091)  
 - Farah Yusnaida Arif — (22083010106)
 
-<p align="center">
 ### **Dosen Pengampu**
-<p align="center">
 Amri Muhaimin, S.Stat., M.Stat., MS  
 NIP. 199507232024061002
 
