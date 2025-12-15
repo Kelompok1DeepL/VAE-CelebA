@@ -7,10 +7,10 @@
 ---
 
 <p align="center">
-<img width="987" height="967" alt="image" src="https://github.com/user-attachments/assets/d18b13db-2b14-466c-8117-2dcce828b8ae" />
+<img width="320" height="320" alt="image" src="https://github.com/user-attachments/assets/d18b13db-2b14-466c-8117-2dcce828b8ae" />
 
 <p align="center">
-## **Disusun oleh Kelompok 1**
+## <b>Disusun oleh Kelompok 1</b>
 - Tsabita Rosyidah Putri — (22083010012)  
 - Adelia Yuandhika — (22083010066)  
 - Hazza Fitrah Hafizhul Chaq — (22083010070)  
