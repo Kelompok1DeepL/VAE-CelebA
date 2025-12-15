@@ -5,7 +5,11 @@
 ### “IMPLEMENTASI <i>VARIATIONAL AUTOENCODER</i> (VAE) BERBASIS <i>RESIDUAL BLOCKS</i> UNTUK REKONSTRUKSI CITRA WAJAH PADA DATASET CELEBA”
 
 ---
-    
+
+<p align="center">
+<img width="987" height="967" alt="image" src="https://github.com/user-attachments/assets/d18b13db-2b14-466c-8117-2dcce828b8ae" />
+
+<p align="center">
 ## **Disusun oleh Kelompok 1**
 - Tsabita Rosyidah Putri — (22083010012)  
 - Adelia Yuandhika — (22083010066)  
@@ -13,12 +17,12 @@
 - Niken Sulistyowati — (22083010091)  
 - Farah Yusnaida Arif — (22083010106)
 
-    
+<p align="center">   
 ### **Dosen Pengampu**
 Amri Muhaimin, S.Stat., M.Stat., MS  
 NIP. 199507232024061002
 
-    
+<p align="center">
 ### **Program Studi Sains Data**  
 **FAKULTAS ILMU KOMPUTER**  
 UNIVERSITAS PEMBANGUNAN NASIONAL "VETERAN" JAWA TIMUR
